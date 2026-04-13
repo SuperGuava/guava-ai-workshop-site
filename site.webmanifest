@@ -1,0 +1,16 @@
+{
+  "name": "구아바의 AI 공방",
+  "short_name": "AI 공방",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fff7ef",
+  "theme_color": "#f36a5f",
+  "icons": [
+    {
+      "src": "assets/hero-workshop.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

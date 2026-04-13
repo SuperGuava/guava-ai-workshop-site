@@ -1,0 +1,36 @@
+<svg width="960" height="760" viewBox="0 0 960 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="base" x1="70" y1="84" x2="860" y2="680" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF9F2"/>
+      <stop offset="1" stop-color="#FFEBD9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="960" height="760" rx="56" fill="url(#base)"/>
+  <rect x="88" y="108" width="784" height="126" rx="34" fill="#FFFDF9"/>
+  <rect x="130" y="280" width="700" height="112" rx="34" fill="#FFF6ED"/>
+  <rect x="176" y="438" width="608" height="112" rx="34" fill="#FFF0E4"/>
+  <rect x="224" y="594" width="512" height="98" rx="34" fill="#F9FBF4"/>
+
+  <circle cx="164" cy="171" r="36" fill="#F36A5F"/>
+  <circle cx="204" cy="336" r="30" fill="#F8BF66"/>
+  <circle cx="244" cy="494" r="28" fill="#E48E53"/>
+  <circle cx="288" cy="642" r="24" fill="#4F7B5B"/>
+
+  <text x="228" y="160" fill="#2B1F1B" font-family="'Malgun Gothic', sans-serif" font-size="24" font-weight="700">1단계 · 맥락 명시</text>
+  <text x="228" y="196" fill="#70564E" font-family="'Malgun Gothic', sans-serif" font-size="20">내 상황, 목표, 누구를 위한 요청인지 적기</text>
+
+  <text x="260" y="328" fill="#2B1F1B" font-family="'Malgun Gothic', sans-serif" font-size="24" font-weight="700">2단계 · 조건 명시</text>
+  <text x="260" y="364" fill="#70564E" font-family="'Malgun Gothic', sans-serif" font-size="20">기간, 예산, 우선순위, 제한사항 추가</text>
+
+  <text x="298" y="486" fill="#2B1F1B" font-family="'Malgun Gothic', sans-serif" font-size="24" font-weight="700">3단계 · 출력 형식 명시</text>
+  <text x="298" y="522" fill="#70564E" font-family="'Malgun Gothic', sans-serif" font-size="20">표 / 체크리스트 / 실행순서처럼 받을 형태 지정</text>
+
+  <text x="334" y="640" fill="#2B1F1B" font-family="'Malgun Gothic', sans-serif" font-size="24" font-weight="700">결과 · 실전에 바로 쓰는 문서</text>
+  <text x="334" y="672" fill="#70564E" font-family="'Malgun Gothic', sans-serif" font-size="20">복붙용 답변이 아니라 실제 문제를 푸는 결과물</text>
+
+  <path d="M760 170C788 170 810 192 810 220C810 248 788 270 760 270H722" stroke="#DDB491" stroke-width="12" stroke-linecap="round"/>
+  <path d="M760 498C788 498 810 520 810 548C810 576 788 598 760 598H728" stroke="#DDB491" stroke-width="12" stroke-linecap="round"/>
+  <text x="646" y="252" fill="#D84D43" font-family="Georgia, serif" font-size="40" font-weight="700">질문의 해상도</text>
+  <text x="598" y="302" fill="#70564E" font-family="'Malgun Gothic', sans-serif" font-size="20">좋은 답보다 좋은 질문을 만드는 훈련</text>
+</svg>

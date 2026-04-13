@@ -1,0 +1,66 @@
+<svg width="1200" height="980" viewBox="0 0 1200 980" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="60" y1="80" x2="1110" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7F0"/>
+      <stop offset="1" stop-color="#FFE6D7"/>
+    </linearGradient>
+    <linearGradient id="guava" x1="350" y1="170" x2="640" y2="530" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9887C"/>
+      <stop offset="1" stop-color="#DF5A50"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="735" y1="220" x2="1015" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFDF7"/>
+      <stop offset="1" stop-color="#F9EAD8"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="1200" height="980" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="30" flood-color="#B87E65" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="980" rx="64" fill="url(#bg)"/>
+  <path d="M1088 112C1148 220 1158 408 1038 534C918 660 726 672 702 842" stroke="#F5C6A6" stroke-width="22" stroke-linecap="round" opacity="0.7"/>
+  <path d="M138 788C138 788 178 624 332 630C486 636 590 750 722 738" stroke="#DDE5D2" stroke-width="26" stroke-linecap="round"/>
+
+  <g filter="url(#shadow)">
+    <rect x="108" y="114" width="424" height="740" rx="42" fill="#FFFDF9"/>
+    <rect x="138" y="152" width="364" height="218" rx="28" fill="#FFF2E4"/>
+    <circle cx="242" cy="260" r="82" fill="url(#guava)"/>
+    <path d="M222 163C234 133 269 113 302 118C286 143 287 169 299 191C277 190 250 182 222 163Z" fill="#4F7B5B"/>
+    <circle cx="242" cy="260" r="27" fill="#FFDAB3"/>
+    <path d="M174 311C213 285 273 277 325 294" stroke="#FFE9D5" stroke-width="12" stroke-linecap="round"/>
+    <text x="138" y="418" fill="#2B1F1B" font-family="Georgia, serif" font-size="44" font-weight="700">구아바의 AI 공방</text>
+    <text x="138" y="470" fill="#70564E" font-family="'Malgun Gothic', sans-serif" font-size="24">생활에 붙는 실습형 AI 교육</text>
+
+    <rect x="138" y="522" width="364" height="120" rx="24" fill="#F9FBF4"/>
+    <text x="168" y="566" fill="#4F7B5B" font-family="'Malgun Gothic', sans-serif" font-size="20" font-weight="700">질문의 해상도</text>
+    <text x="168" y="604" fill="#70564E" font-family="'Malgun Gothic', sans-serif" font-size="18">맥락 + 조건 + 출력 형식</text>
+
+    <rect x="138" y="664" width="364" height="146" rx="24" fill="#FFF3EC"/>
+    <text x="168" y="710" fill="#D84D43" font-family="'Malgun Gothic', sans-serif" font-size="20" font-weight="700">실전형 과제</text>
+    <text x="168" y="748" fill="#70564E" font-family="'Malgun Gothic', sans-serif" font-size="18">병원 비교표 / 여행 일정 / 교육 정보 요약</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="610" y="160" width="488" height="634" rx="44" fill="url(#screen)"/>
+    <rect x="652" y="214" width="402" height="100" rx="24" fill="#4F7B5B"/>
+    <text x="688" y="272" fill="#FDF6EE" font-family="'Malgun Gothic', sans-serif" font-size="34" font-weight="700">Answer AI → Action AI</text>
+
+    <rect x="654" y="352" width="170" height="168" rx="26" fill="#FFF7EF"/>
+    <rect x="844" y="352" width="170" height="168" rx="26" fill="#FFF7EF"/>
+    <rect x="749" y="542" width="170" height="168" rx="26" fill="#FFF7EF"/>
+
+    <circle cx="739" cy="418" r="38" fill="#F36A5F"/>
+    <circle cx="929" cy="418" r="38" fill="#F8BF66"/>
+    <circle cx="834" cy="608" r="38" fill="#8EB193"/>
+
+    <text x="697" y="484" fill="#2B1F1B" font-family="'Malgun Gothic', sans-serif" font-size="22" font-weight="700">질문 설계</text>
+    <text x="884" y="484" fill="#2B1F1B" font-family="'Malgun Gothic', sans-serif" font-size="22" font-weight="700">실행 흐름</text>
+    <text x="796" y="674" fill="#2B1F1B" font-family="'Malgun Gothic', sans-serif" font-size="22" font-weight="700">결과물</text>
+
+    <path d="M778 418H890" stroke="#D9B798" stroke-width="12" stroke-linecap="round"/>
+    <path d="M834 468V570" stroke="#D9B798" stroke-width="12" stroke-linecap="round"/>
+  </g>
+
+  <rect x="734" y="72" width="238" height="86" rx="24" fill="#FFFDF8" opacity="0.92"/>
+  <text x="770" y="124" fill="#70564E" font-family="'Malgun Gothic', sans-serif" font-size="24">왕초보도 따라오는 공방식 수업</text>
+</svg>
