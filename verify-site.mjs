@@ -98,6 +98,14 @@ const checks = [
       css.includes(".application-form textarea {\n    min-height: 108px;"),
   },
   {
+    label: "Korean font pairing",
+    pass:
+      css.includes("pretendardvariable-dynamic-subset.css") &&
+      css.includes("Gowun+Batang") &&
+      css.includes('--font-body: "Pretendard Variable"') &&
+      css.includes('--font-display: "Gowun Batang"'),
+  },
+  {
     label: "deployment README",
     pass: existsSync(resolve(root, "README.md")),
   },
