@@ -517,6 +517,32 @@ h1 {
   text-transform: uppercase;
 }
 
+.demo-result {
+  display: grid;
+  gap: 6px;
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(79, 123, 91, 0.08);
+  border: 1px solid rgba(79, 123, 91, 0.12);
+}
+
+.demo-result p {
+  margin: 0;
+  color: var(--leaf);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.demo-result strong {
+  font-size: 1rem;
+}
+
+.demo-result span {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 .timeline {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -584,6 +610,17 @@ h1 {
   padding: 26px;
   border-radius: 26px;
   background: rgba(255, 251, 244, 0.88);
+}
+
+.audience-grid span {
+  display: inline-flex;
+  margin-bottom: 14px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(248, 191, 102, 0.18);
+  color: var(--guava-deep);
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 
 .format-grid {

@@ -37,7 +37,7 @@ const checks = [
     label: "application intake copy",
     pass:
       html.includes("작성한 내용은 ninefire@naver.com으로 접수됩니다") &&
-      html.includes("신청 접수 보내기"),
+      html.includes("내게 맞는 수업 문의하기"),
   },
   {
     label: "stronger hero positioning",
@@ -54,6 +54,30 @@ const checks = [
       html.includes("병원·검진 비교표") &&
       html.includes("부모님 여행 일정표") &&
       html.includes("업무 안내문 초안"),
+  },
+  {
+    label: "demo result previews",
+    pass:
+      html.includes("결과 미리보기") &&
+      html.includes("이동 시간을 줄인 일정표") &&
+      html.includes("첫 통화 체크리스트") &&
+      html.includes("주말 AI 체험 비교표"),
+  },
+  {
+    label: "audience cards sharpened",
+    pass:
+      html.includes("왕초보에게 맞는 흐름") &&
+      html.includes("중장년층에게 맞는 흐름") &&
+      html.includes("실무자에게 맞는 흐름") &&
+      html.includes("내게 맞는 수업 문의하기"),
+  },
+  {
+    label: "softer form guidance",
+    pass:
+      html.includes("어떤 수업이 맞을지 간단히 적어 주세요") &&
+      html.includes("확인 후 수업 방식과") &&
+      html.includes("준비물을 안내드립니다") &&
+      html.includes("내 상황을 적어 주세요"),
   },
   {
     label: "deployment README",
