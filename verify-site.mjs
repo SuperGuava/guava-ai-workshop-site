@@ -3,6 +3,7 @@ import { resolve } from "node:path";
 
 const root = resolve(process.cwd(), "guava-ai-workshop-site");
 const html = readFileSync(resolve(root, "index.html"), "utf8");
+const css = readFileSync(resolve(root, "styles.css"), "utf8");
 
 const checks = [
   {
@@ -78,6 +79,23 @@ const checks = [
       html.includes("확인 후 수업 방식과") &&
       html.includes("준비물을 안내드립니다") &&
       html.includes("내 상황을 적어 주세요"),
+  },
+  {
+    label: "mobile-first CTA and form guidance",
+    pass:
+      html.includes(">상담 신청</a>") &&
+      html.includes("30초 정도면 작성할 수 있습니다.") &&
+      html.includes("모바일에서는 핵심만 먼저 보고 바로 신청할 수 있습니다."),
+  },
+  {
+    label: "mobile responsive CSS refinements",
+    pass:
+      css.includes("padding-bottom: calc(96px + env(safe-area-inset-bottom));") &&
+      css.includes("bottom: calc(10px + env(safe-area-inset-bottom));") &&
+      css.includes(".hero-detail {\n    display: none;") &&
+      css.includes(".hero-metrics li:nth-child(n + 2)") &&
+      css.includes(".outcome-card,\n  .practice-card,\n  .audience-grid article") &&
+      css.includes(".application-form textarea {\n    min-height: 108px;"),
   },
   {
     label: "deployment README",

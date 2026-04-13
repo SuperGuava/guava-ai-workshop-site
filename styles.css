@@ -198,6 +198,7 @@ h1 {
 }
 
 .hero-detail,
+.mobile-hero-proof,
 .section-heading p,
 .info-card p,
 .timeline-step p,
@@ -207,6 +208,10 @@ h1 {
 .demo-card p {
   color: var(--muted);
   line-height: 1.72;
+}
+
+.mobile-hero-proof {
+  display: none;
 }
 
 .hero-actions {
@@ -690,6 +695,15 @@ h1 {
   text-transform: uppercase;
 }
 
+.form-helper {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(79, 123, 91, 0.08);
+  color: var(--leaf);
+  font-weight: 700;
+}
+
 .contact-card ul {
   margin: 0;
   padding-left: 18px;
@@ -848,6 +862,10 @@ h1 {
 }
 
 @media (max-width: 720px) {
+  body {
+    padding-bottom: calc(96px + env(safe-area-inset-bottom));
+  }
+
   .page-shell {
     width: min(100% - 20px, 1200px);
   }
@@ -863,7 +881,8 @@ h1 {
   }
 
   .hero {
-    padding-top: 28px;
+    gap: 18px;
+    padding-top: 18px;
   }
 
   .hero-copy,
@@ -880,16 +899,84 @@ h1 {
     padding: 24px;
   }
 
+  h1 {
+    font-size: clamp(2.35rem, 11vw, 3.6rem);
+    max-width: 11ch;
+  }
+
   .hero-lead {
     font-size: 1.08rem;
+    line-height: 1.48;
+  }
+
+  .hero-detail {
+    display: none;
+  }
+
+  .mobile-hero-proof {
+    display: block;
+    margin: 12px 0 0;
+    font-weight: 700;
+  }
+
+  .hero-actions {
+    margin: 20px 0;
+  }
+
+  .hero-metrics {
+    gap: 8px;
+  }
+
+  .hero-metrics li {
+    padding: 14px 16px;
+  }
+
+  .hero-metrics li:nth-child(n + 2) {
+    display: none;
   }
 
   .button {
     width: 100%;
   }
 
+  .content-section {
+    padding: 34px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 20px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(1.8rem, 9vw, 2.6rem);
+  }
+
+  .outcome-card,
+  .practice-card,
+  .audience-grid article,
+  .faq-list article,
+  .format-card,
+  .contact-card {
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  .outcome-card {
+    min-height: 0;
+  }
+
+  .outcome-card span {
+    margin-bottom: 18px;
+  }
+
+  .application-form textarea {
+    min-height: 108px;
+  }
+
   .quick-cta {
     left: 10px;
     right: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    min-height: 56px;
   }
 }
