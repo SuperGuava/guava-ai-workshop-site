@@ -22,17 +22,22 @@ const checks = [
     pass: /class="[^"]*\bquick-cta\b/.test(html),
   },
   {
-    label: "application mail link",
+    label: "application form endpoint",
     pass:
-      html.includes('class="button button-primary application-link"') &&
-      html.includes('href="mailto:ninefire@naver.com?subject=') &&
-      !html.includes('href="mailto:?subject='),
+      html.includes('id="application-form"') &&
+      html.includes('action="https://formsubmit.co/ninefire@naver.com"') &&
+      html.includes('method="POST"') &&
+      html.includes('name="_subject" value="구아바의 AI 공방 신청 접수"') &&
+      html.includes('name="_template" value="table"') &&
+      html.includes('name="_captcha" value="false"') &&
+      html.includes('name="contact"') &&
+      !html.includes("mailto:ninefire@naver.com"),
   },
   {
     label: "application intake copy",
     pass:
-      html.includes("수신 주소와 접수 문구가 자동으로 들어갑니다") &&
-      html.includes("수업 신청을 접수하고 싶습니다"),
+      html.includes("작성한 내용은 ninefire@naver.com으로 접수됩니다") &&
+      html.includes("신청 접수 보내기"),
   },
   {
     label: "deployment README",

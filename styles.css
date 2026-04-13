@@ -626,6 +626,49 @@ h1 {
   margin-top: 22px;
 }
 
+.application-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.application-form label {
+  display: grid;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.application-form input,
+.application-form select,
+.application-form textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid rgba(84, 56, 48, 0.16);
+  border-radius: 14px;
+  background: rgba(255, 253, 249, 0.92);
+  color: var(--text);
+  font: inherit;
+}
+
+.application-form textarea {
+  min-height: 126px;
+  line-height: 1.65;
+  resize: vertical;
+}
+
+.application-form input:focus,
+.application-form select:focus,
+.application-form textarea:focus {
+  outline: 3px solid rgba(243, 106, 95, 0.22);
+  border-color: rgba(216, 77, 67, 0.72);
+}
+
+.application-form .contact-actions {
+  margin-top: 6px;
+}
+
 .contact-template {
   width: 100%;
   min-height: 176px;
