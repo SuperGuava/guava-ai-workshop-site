@@ -40,6 +40,22 @@ const checks = [
       html.includes("신청 접수 보내기"),
   },
   {
+    label: "stronger hero positioning",
+    pass:
+      html.includes("내 일을 AI에게 맡기는 2시간 실습") &&
+      html.includes("수업 상담 신청하기") &&
+      html.includes('href="#outcomes"'),
+  },
+  {
+    label: "outcome proof section",
+    pass:
+      html.includes('id="outcomes"') &&
+      html.includes("수업 후 바로 남는 결과물") &&
+      html.includes("병원·검진 비교표") &&
+      html.includes("부모님 여행 일정표") &&
+      html.includes("업무 안내문 초안"),
+  },
+  {
     label: "deployment README",
     pass: existsSync(resolve(root, "README.md")),
   },
