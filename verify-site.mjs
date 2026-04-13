@@ -25,7 +25,14 @@ const checks = [
     label: "application mail link",
     pass:
       html.includes('class="button button-primary application-link"') &&
-      html.includes('href="mailto:'),
+      html.includes('href="mailto:ninefire@naver.com?subject=') &&
+      !html.includes('href="mailto:?subject='),
+  },
+  {
+    label: "application intake copy",
+    pass:
+      html.includes("수신 주소와 접수 문구가 자동으로 들어갑니다") &&
+      html.includes("수업 신청을 접수하고 싶습니다"),
   },
   {
     label: "deployment README",
