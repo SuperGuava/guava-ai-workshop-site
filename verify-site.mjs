@@ -38,13 +38,14 @@ const checks = [
     label: "application intake copy",
     pass:
       html.includes("작성한 내용은 ninefire@naver.com으로 접수됩니다") &&
-      html.includes("내게 맞는 수업 문의하기"),
+      html.includes("30초 수업 상담 신청하기"),
   },
   {
     label: "stronger hero positioning",
     pass:
-      html.includes("내 일을 AI에게 맡기는 2시간 실습") &&
-      html.includes("수업 상담 신청하기") &&
+      html.includes("내 일 하나를 AI에게 맡기는 2시간 실습") &&
+      html.includes("AI를 써보고 끝내지 말고, 오늘 반복되는 일 하나를 실제 결과물로 바꿔 봅니다.") &&
+      html.includes("30초 상담 신청하기") &&
       html.includes('href="#outcomes"'),
   },
   {
@@ -67,14 +68,16 @@ const checks = [
   {
     label: "audience cards sharpened",
     pass:
-      html.includes("왕초보에게 맞는 흐름") &&
-      html.includes("중장년층에게 맞는 흐름") &&
-      html.includes("실무자에게 맞는 흐름") &&
-      html.includes("내게 맞는 수업 문의하기"),
+      html.includes("이런 분은 바로 신청해도 좋습니다") &&
+      html.includes("AI를 켜도 뭘 물어볼지 막히는 분") &&
+      html.includes("가족과 생활 정보를 정리해야 하는 분") &&
+      html.includes("반복 안내문을 줄이고 싶은 분") &&
+      html.includes("30초 수업 상담 신청하기"),
   },
   {
     label: "softer form guidance",
     pass:
+      html.includes("30초만 적으면 수업 상담으로 이어집니다") &&
       html.includes("어떤 수업이 맞을지 간단히 적어 주세요") &&
       html.includes("확인 후 수업 방식과") &&
       html.includes("준비물을 안내드립니다") &&
@@ -85,7 +88,7 @@ const checks = [
     pass:
       html.includes(">상담 신청</a>") &&
       html.includes("30초 정도면 작성할 수 있습니다.") &&
-      html.includes("모바일에서는 핵심만 먼저 보고 바로 신청할 수 있습니다."),
+      html.includes("핵심만 보고 30초 안에 상담 신청까지 이어집니다."),
   },
   {
     label: "mobile responsive CSS refinements",
