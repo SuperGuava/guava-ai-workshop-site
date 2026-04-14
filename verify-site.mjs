@@ -94,7 +94,7 @@ const checks = [
       css.includes("bottom: calc(10px + env(safe-area-inset-bottom));") &&
       css.includes(".hero-detail {\n    display: none;") &&
       css.includes(".hero-metrics li:nth-child(n + 2)") &&
-      css.includes(".outcome-card,\n  .practice-card,\n  .audience-grid article") &&
+      css.includes(".outcome-card,\n  .operator-proof-card,\n  .practice-card") &&
       css.includes(".application-form textarea {\n    min-height: 108px;"),
   },
   {
@@ -104,6 +104,18 @@ const checks = [
       css.includes("Gowun+Batang") &&
       css.includes('--font-body: "Pretendard Variable"') &&
       css.includes('--font-display: "Gowun Batang"'),
+  },
+  {
+    label: "operator proof section",
+    pass:
+      html.includes('id="operator-proof"') &&
+      html.includes("실제 AI 봇 운영 경험을 초보자용 수업으로 바꿨습니다") &&
+      html.includes("질문 정렬") &&
+      html.includes("실행과 검증") &&
+      html.includes("자산화") &&
+      css.includes(".operator-proof-section") &&
+      css.includes(".operator-proof-grid") &&
+      css.includes(".operator-proof-card,\n  .practice-card"),
   },
   {
     label: "deployment README",
