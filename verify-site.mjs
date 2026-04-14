@@ -88,6 +88,18 @@ const checks = [
       html.includes("내 상황을 적어 주세요"),
   },
   {
+    label: "reassurance section",
+    pass:
+      html.includes("이런 걱정이 있어도 괜찮습니다") &&
+      html.includes("컴퓨터를 잘 못해도 됩니다") &&
+      html.includes("질문문은 같이 만듭니다") &&
+      html.includes("수업 후 다시 쓸 문구를 가져갑니다") &&
+      html.includes("막히는 상황도 수업에 포함합니다") &&
+      html.includes('href="#application-form">걱정 없이 상담 신청하기</a>') &&
+      css.includes(".reassurance-section") &&
+      css.includes(".reassurance-grid"),
+  },
+  {
     label: "mobile-first CTA and form guidance",
     pass:
       html.includes(">상담 신청</a>") &&
