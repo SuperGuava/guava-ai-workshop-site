@@ -52,10 +52,14 @@ const checks = [
     label: "outcome proof section",
     pass:
       html.includes('id="outcomes"') &&
-      html.includes("수업 후 바로 남는 결과물") &&
-      html.includes("병원·검진 비교표") &&
-      html.includes("부모님 여행 일정표") &&
-      html.includes("업무 안내문 초안"),
+      html.includes("수업 끝나면 이런 결과물이 손에 남습니다") &&
+      html.includes("가족 작전실 리포트") &&
+      html.includes("AI 비서 업무 데스크") &&
+      html.includes("망고2 질문 템플릿팩") &&
+      html.includes("Before") &&
+      html.includes("After") &&
+      css.includes(".artifact-preview") &&
+      css.includes(".sample-pill"),
   },
   {
     label: "demo result previews",

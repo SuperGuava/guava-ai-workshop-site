@@ -426,7 +426,7 @@ h1 {
 }
 
 .outcome-card {
-  min-height: 260px;
+  min-height: 370px;
   padding: 26px;
   border-radius: 28px;
   background:
@@ -438,7 +438,7 @@ h1 {
 
 .outcome-card span {
   display: inline-flex;
-  margin-bottom: 42px;
+  margin-bottom: 26px;
   padding: 8px 12px;
   border-radius: 999px;
   background: rgba(79, 123, 91, 0.1);
@@ -456,6 +456,70 @@ h1 {
   margin: 0;
   color: var(--muted);
   line-height: 1.72;
+}
+
+.artifact-swap {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.artifact-swap p {
+  padding-left: 12px;
+  border-left: 3px solid rgba(243, 106, 95, 0.4);
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.artifact-swap strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--guava);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.artifact-preview {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.artifact-preview li {
+  position: relative;
+  padding: 10px 0 10px 18px;
+  border-top: 1px solid rgba(46, 42, 36, 0.12);
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.artifact-preview li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 19px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--leaf);
+}
+
+.sample-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.sample-pill {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0;
+  background: rgba(243, 106, 95, 0.12);
+  color: var(--guava);
 }
 
 .section-heading {
