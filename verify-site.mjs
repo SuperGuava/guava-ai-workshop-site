@@ -113,7 +113,9 @@ const checks = [
       css.includes("bottom: calc(10px + env(safe-area-inset-bottom));") &&
       css.includes(".hero-detail {\n    display: none;") &&
       css.includes(".hero-metrics li:nth-child(n + 2)") &&
-      css.includes(".outcome-card,\n  .operator-proof-card,\n  .practice-card") &&
+      css.includes(".outcome-card") &&
+      css.includes(".operator-proof-card") &&
+      css.includes(".practice-card") &&
       css.includes(".application-form textarea {\n    min-height: 108px;"),
   },
   {
@@ -136,7 +138,21 @@ const checks = [
       html.includes("망고2") &&
       css.includes(".operator-proof-section") &&
       css.includes(".operator-proof-grid") &&
-      css.includes(".operator-proof-card,\n  .practice-card"),
+      css.includes(".operator-proof-card"),
+  },
+  {
+    label: "AI execution harness section",
+    pass:
+      html.includes('id="execution-harness"') &&
+      html.includes("AI가 일하는 순서를 직접 만들어 봅니다") &&
+      html.includes("목표 정리") &&
+      html.includes("자료 연결") &&
+      html.includes("단계 실행") &&
+      html.includes("검증 루틴") &&
+      html.includes("나만의 AI 사용 위키") &&
+      css.includes(".harness-section") &&
+      css.includes(".harness-steps") &&
+      css.includes(".wiki-board"),
   },
   {
     label: "deployment README",
