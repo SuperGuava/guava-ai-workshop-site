@@ -109,10 +109,12 @@ const checks = [
     label: "operator proof section",
     pass:
       html.includes('id="operator-proof"') &&
-      html.includes("실제 AI 봇 운영 경험을 초보자용 수업으로 바꿨습니다") &&
-      html.includes("질문 정렬") &&
-      html.includes("실행과 검증") &&
-      html.includes("자산화") &&
+      html.includes("AI 봇을 직접 만든 사람이 초보자용 수업으로 바꿨습니다") &&
+      html.includes("직접 만든 AI 봇 4개로 검증한 실전형 AI 수업") &&
+      html.includes("에르9") &&
+      html.includes("망고빙수") &&
+      html.includes("망고 · Openclaw Agent") &&
+      html.includes("망고2") &&
       css.includes(".operator-proof-section") &&
       css.includes(".operator-proof-grid") &&
       css.includes(".operator-proof-card,\n  .practice-card"),
