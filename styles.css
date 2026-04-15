@@ -559,6 +559,94 @@ h1 {
   line-height: 1.72;
 }
 
+.agent-flow-section {
+  padding: 46px 34px;
+  border-radius: 44px;
+  background:
+    linear-gradient(135deg, rgba(43, 31, 27, 0.93), rgba(79, 123, 91, 0.9)),
+    rgba(43, 31, 27, 0.92);
+  color: #fffaf0;
+  box-shadow: var(--shadow);
+}
+
+.agent-flow-section .eyebrow,
+.agent-flow-section .section-heading p,
+.agent-flow-section h2 {
+  color: inherit;
+}
+
+.agent-flow-section .section-heading p {
+  opacity: 0.86;
+}
+
+.flow-compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.flow-card,
+.flow-mode-grid article {
+  padding: 26px;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 250, 240, 0.14);
+}
+
+.flow-card-muted {
+  background: rgba(255, 250, 240, 0.1);
+}
+
+.flow-card-strong {
+  background: rgba(255, 250, 240, 0.18);
+}
+
+.flow-card span,
+.flow-mode-grid span {
+  display: inline-flex;
+  margin-bottom: 22px;
+  color: var(--sun);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.flow-card h3,
+.flow-mode-grid h3 {
+  margin-bottom: 14px;
+  font-size: 1.28rem;
+}
+
+.flow-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.flow-card li,
+.flow-mode-grid p {
+  margin: 0;
+  color: rgba(255, 250, 240, 0.84);
+  line-height: 1.68;
+}
+
+.flow-card li {
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255, 250, 240, 0.1);
+}
+
+.flow-mode-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.flow-mode-grid article {
+  background: rgba(255, 250, 240, 0.08);
+}
+
 .harness-section {
   padding: 44px 32px;
   border-radius: 42px;
@@ -1261,6 +1349,8 @@ h1 {
   .growth-layout,
   .growth-path,
   .operator-proof-grid,
+  .flow-compare,
+  .flow-mode-grid,
   .harness-layout,
   .harness-steps,
   .split-content,
@@ -1389,6 +1479,8 @@ h1 {
   .growth-card,
   .readiness-check,
   .operator-proof-card,
+  .flow-card,
+  .flow-mode-grid article,
   .harness-step,
   .wiki-board,
   .prompt-flow article,
@@ -1429,6 +1521,11 @@ h1 {
   }
 
   .harness-section {
+    padding: 26px;
+    border-radius: 26px;
+  }
+
+  .agent-flow-section {
     padding: 26px;
     border-radius: 26px;
   }

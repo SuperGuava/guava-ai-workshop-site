@@ -159,6 +159,18 @@ const checks = [
       css.includes(".operator-proof-card"),
   },
   {
+    label: "AI flow over org chart section",
+    pass:
+      html.includes('id="agent-flow"') &&
+      html.includes("AI 조직도보다 중요한 것은 하나의 작업 흐름입니다") &&
+      html.includes("사람처럼 나누지 말고, AI답게 흐르게 합니다") &&
+      html.includes("핸드오프") &&
+      html.includes("중앙 문맥") &&
+      css.includes(".agent-flow-section") &&
+      css.includes(".flow-compare") &&
+      css.includes(".flow-mode-grid"),
+  },
+  {
     label: "AI growth map section",
     pass:
       html.includes('id="growth-map"') &&
