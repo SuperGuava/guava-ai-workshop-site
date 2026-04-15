@@ -22,6 +22,14 @@ const checks = [
     pass: html.includes('rel="manifest"'),
   },
   {
+    label: "cache-busted frontend assets",
+    pass:
+      html.includes('href="styles.css?v=') &&
+      html.includes('src="script.js?v=') &&
+      !html.includes('href="styles.css"') &&
+      !html.includes('src="script.js"'),
+  },
+  {
     label: "sticky quick CTA",
     pass: /class="[^"]*\bquick-cta\b/.test(html),
   },
