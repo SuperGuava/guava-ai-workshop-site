@@ -141,6 +141,20 @@ const checks = [
       css.includes(".operator-proof-card"),
   },
   {
+    label: "AI growth map section",
+    pass:
+      html.includes('id="growth-map"') &&
+      html.includes("AI를 쓰는 사람에서, AI가 일하게 만드는 사람으로") &&
+      html.includes("AI 입문자") &&
+      html.includes("AI 실행자") &&
+      html.includes("AI 설계자") &&
+      html.includes("AI 제작자") &&
+      html.includes("나는 지금 AI를 얼마나 쓸 수 있을까?") &&
+      css.includes(".growth-section") &&
+      css.includes(".growth-path") &&
+      css.includes(".readiness-check"),
+  },
+  {
     label: "AI execution harness section",
     pass:
       html.includes('id="execution-harness"') &&
