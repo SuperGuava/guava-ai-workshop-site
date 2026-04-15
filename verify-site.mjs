@@ -4,6 +4,7 @@ import { resolve } from "node:path";
 const root = resolve(process.cwd(), "guava-ai-workshop-site");
 const html = readFileSync(resolve(root, "index.html"), "utf8");
 const css = readFileSync(resolve(root, "styles.css"), "utf8");
+const script = readFileSync(resolve(root, "script.js"), "utf8");
 const heroSvg = readFileSync(resolve(root, "assets/hero-workshop.svg"), "utf8");
 const ladderSvg = readFileSync(resolve(root, "assets/question-ladder.svg"), "utf8");
 
@@ -29,12 +30,31 @@ const checks = [
     pass:
       html.includes('id="application-form"') &&
       html.includes('action="https://formsubmit.co/ninefire@naver.com"') &&
+      html.includes('data-submit-endpoint="https://formsubmit.co/ajax/ninefire@naver.com"') &&
       html.includes('method="POST"') &&
       html.includes('name="_subject" value="구아바의 AI 공방 신청 접수"') &&
       html.includes('name="_template" value="table"') &&
       html.includes('name="_captcha" value="false"') &&
+      html.includes('name="_url" value="https://superguava.github.io/guava-ai-workshop-site/"') &&
       html.includes('name="contact"') &&
       !html.includes("mailto:ninefire@naver.com"),
+  },
+  {
+    label: "application submit feedback",
+    pass:
+      html.includes('id="application-status"') &&
+      html.includes('class="submit-dialog"') &&
+      html.includes('role="dialog"') &&
+      html.includes("신청 내용을 보내는 중입니다") &&
+      html.includes("신청이 접수되었습니다") &&
+      css.includes(".form-status") &&
+      css.includes(".submit-dialog") &&
+      css.includes(".submit-dialog.is-visible") &&
+      script.includes('document.querySelector("#application-form")') &&
+      script.includes('applicationForm.addEventListener("submit"') &&
+      script.includes("fetch(submitEndpoint") &&
+      script.includes("신청 내용을 보내는 중입니다") &&
+      script.includes("신청이 접수되었습니다"),
   },
   {
     label: "application intake copy",

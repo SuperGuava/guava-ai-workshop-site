@@ -1286,6 +1286,64 @@ h1 {
   margin-top: 6px;
 }
 
+.form-status {
+  min-height: 24px;
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(79, 123, 91, 0.08);
+  color: var(--leaf);
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.form-status.is-error {
+  background: rgba(216, 77, 67, 0.08);
+  color: var(--guava-deep);
+}
+
+.submit-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(43, 31, 27, 0.46);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.submit-dialog.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.submit-dialog-card {
+  width: min(100%, 440px);
+  padding: 28px;
+  border-radius: 26px;
+  background: rgba(255, 253, 249, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  box-shadow: var(--shadow);
+}
+
+.submit-dialog-card h2 {
+  margin-bottom: 12px;
+  font-size: clamp(1.8rem, 7vw, 2.4rem);
+}
+
+.submit-dialog-card p:not(.mini-label) {
+  margin: 0 0 22px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.submit-dialog-close {
+  width: 100%;
+}
+
 .contact-template {
   width: 100%;
   min-height: 176px;

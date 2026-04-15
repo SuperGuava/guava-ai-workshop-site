@@ -715,11 +715,13 @@
                 id="application-form"
                 class="application-form"
                 action="https://formsubmit.co/ninefire@naver.com"
+                data-submit-endpoint="https://formsubmit.co/ajax/ninefire@naver.com"
                 method="POST"
               >
                 <input type="hidden" name="_subject" value="구아바의 AI 공방 신청 접수" />
                 <input type="hidden" name="_template" value="table" />
                 <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_url" value="https://superguava.github.io/guava-ai-workshop-site/" />
                 <input
                   type="hidden"
                   name="_next"
@@ -764,6 +766,9 @@
                     문의 문구 복사
                   </button>
                 </div>
+                <p id="application-status" class="form-status" role="status" aria-live="polite">
+                  상담 신청하기를 누르면 신청 내용을 보내는 중입니다 문구가 표시되고, 접수 결과를 팝업으로 알려드립니다.
+                </p>
               </form>
             </article>
             <div class="contact-stack">
@@ -799,6 +804,17 @@
 
 접수 이메일: ninefire@naver.com</textarea>
         </section>
+
+        <div class="submit-dialog" role="dialog" aria-modal="true" aria-labelledby="submit-dialog-title" aria-hidden="true">
+          <div class="submit-dialog-card">
+            <p class="mini-label">신청 상태</p>
+            <h2 id="submit-dialog-title">신청이 접수되었습니다</h2>
+            <p id="submit-dialog-message">
+              작성한 내용이 ninefire@naver.com으로 전송되었습니다. 확인 후 수업 방식과 준비물을 안내드립니다.
+            </p>
+            <button class="button button-primary submit-dialog-close" type="button">확인했습니다</button>
+          </div>
+        </div>
 
         <section id="faq" class="content-section faq-section">
           <div class="section-heading">
