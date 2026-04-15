@@ -182,6 +182,18 @@ h3 {
   margin: 0;
 }
 
+h1,
+h2,
+h3,
+p,
+li,
+a,
+strong,
+span {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
 .nowrap {
   white-space: nowrap;
 }
@@ -1418,9 +1430,28 @@ h1 {
     padding: 24px;
   }
 
+  .hero-card {
+    padding: 12px;
+  }
+
+  .hero-card img {
+    border-radius: 20px;
+  }
+
+  .hero-dashboard {
+    margin-top: -56px;
+    padding: 18px;
+    border-radius: 22px;
+  }
+
   h1 {
     font-size: clamp(2.35rem, 11vw, 3.6rem);
+    line-height: 1.1;
     max-width: 11ch;
+  }
+
+  h2 {
+    line-height: 1.14;
   }
 
   .hero-lead {
@@ -1473,6 +1504,16 @@ h1 {
 
   .section-heading h2 {
     font-size: clamp(1.8rem, 9vw, 2.6rem);
+  }
+
+  .eyebrow,
+  .mini-label,
+  .outcome-card span,
+  .operator-proof-card span,
+  .flow-card span,
+  .flow-mode-grid span,
+  .harness-step span {
+    letter-spacing: 0.1em;
   }
 
   .outcome-card,

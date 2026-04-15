@@ -123,6 +123,15 @@ const checks = [
       css.includes(".application-form textarea {\n    min-height: 108px;"),
   },
   {
+    label: "mobile Korean line break polish",
+    pass:
+      css.includes("word-break: keep-all;") &&
+      css.includes("overflow-wrap: break-word;") &&
+      css.includes(".eyebrow,\n  .mini-label") &&
+      css.includes("letter-spacing: 0.1em;") &&
+      css.includes(".hero-dashboard {\n    margin-top: -56px;"),
+  },
+  {
     label: "Korean font pairing",
     pass:
       css.includes("pretendardvariable-dynamic-subset.css") &&
