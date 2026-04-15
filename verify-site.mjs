@@ -4,6 +4,8 @@ import { resolve } from "node:path";
 const root = resolve(process.cwd(), "guava-ai-workshop-site");
 const html = readFileSync(resolve(root, "index.html"), "utf8");
 const css = readFileSync(resolve(root, "styles.css"), "utf8");
+const heroSvg = readFileSync(resolve(root, "assets/hero-workshop.svg"), "utf8");
+const ladderSvg = readFileSync(resolve(root, "assets/question-ladder.svg"), "utf8");
 
 const checks = [
   {
@@ -43,7 +45,9 @@ const checks = [
   {
     label: "stronger hero positioning",
     pass:
-      html.includes("내 일 하나를 AI에게 맡기는 2시간 실습") &&
+      html.includes("내 일 하나를") &&
+      html.includes("AI에게") &&
+      html.includes("맡기는 2시간 실습") &&
       html.includes("AI를 써보고 끝내지 말고, 오늘 반복되는 일 하나를 실제 결과물로 바꿔 봅니다.") &&
       html.includes("30초 상담 신청하기") &&
       html.includes('href="#outcomes"'),
@@ -122,9 +126,23 @@ const checks = [
     label: "Korean font pairing",
     pass:
       css.includes("pretendardvariable-dynamic-subset.css") &&
-      css.includes("Gowun+Batang") &&
+      css.includes("Paperlogy.css") &&
       css.includes('--font-body: "Pretendard Variable"') &&
-      css.includes('--font-display: "Gowun Batang"'),
+      css.includes('--font-display: "Paperlogy"') &&
+      !css.includes("Gowun+Batang"),
+  },
+  {
+    label: "visual refresh without embedded SVG text",
+    pass:
+      html.includes('class="hero-dashboard"') &&
+      html.includes("작업장 대시보드") &&
+      html.includes('class="prompt-flow ') &&
+      html.includes("검증된 템플릿") &&
+      !html.includes('src="assets/question-ladder.svg"') &&
+      !heroSvg.includes("<text") &&
+      !heroSvg.includes("font-family") &&
+      !ladderSvg.includes("<text") &&
+      !ladderSvg.includes("font-family"),
   },
   {
     label: "operator proof section",

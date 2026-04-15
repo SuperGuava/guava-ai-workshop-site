@@ -46,7 +46,7 @@
         <section class="hero">
           <div class="hero-copy">
             <p class="eyebrow">PRACTICAL AI WORKSHOP</p>
-            <h1>내 일 하나를 AI에게 맡기는 2시간 실습</h1>
+            <h1>내 일 하나를 <span class="nowrap">AI에게</span> 맡기는 2시간 실습</h1>
             <p class="hero-lead">
               AI를 써보고 끝내지 말고, 오늘 반복되는 일 하나를 실제 결과물로 바꿔 봅니다.
             </p>
@@ -77,7 +77,18 @@
 
           <div class="hero-visual">
             <div class="hero-card">
-              <img src="assets/hero-workshop.svg" alt="구아바의 AI 공방 일러스트" />
+              <img class="hero-illustration" src="assets/hero-workshop.svg" alt="" aria-hidden="true" />
+              <div class="hero-dashboard">
+                <p class="mini-label">작업장 대시보드</p>
+                <strong>요청이 결과물과 사용 위키로 이어지는 흐름</strong>
+                <div class="dashboard-flow" aria-label="AI 작업 흐름">
+                  <span>요청 접수</span>
+                  <span>조건 정리</span>
+                  <span>AI 실행</span>
+                  <span>검증</span>
+                </div>
+                <p>완성된 표, 안내문, 체크리스트를 다음에도 다시 쓰게 저장합니다.</p>
+              </div>
             </div>
             <div class="floating-panel">
               <p>핵심 메시지</p>
@@ -355,8 +366,27 @@
             </p>
           </div>
           <div class="split-content">
-            <div class="resolution-panel">
-              <img src="assets/question-ladder.svg" alt="질문의 해상도 3단계 다이어그램" />
+            <div class="prompt-flow resolution-panel" aria-label="질문이 작업으로 바뀌는 흐름">
+              <article>
+                <span>01</span>
+                <h3>막연한 질문</h3>
+                <p>여행 일정 짜줘</p>
+              </article>
+              <article>
+                <span>02</span>
+                <h3>구체화된 요청</h3>
+                <p>대상, 조건, 우선순위, 출력 형식을 붙입니다.</p>
+              </article>
+              <article>
+                <span>03</span>
+                <h3>실행 결과물</h3>
+                <p>표, 일정표, 안내문, 체크리스트로 받습니다.</p>
+              </article>
+              <article>
+                <span>04</span>
+                <h3>검증된 템플릿</h3>
+                <p>다음에도 다시 쓰는 나만의 요청문으로 저장합니다.</p>
+              </article>
             </div>
             <div class="demo-panel">
               <div class="demo-tabs" role="tablist" aria-label="실습 예시 전환">

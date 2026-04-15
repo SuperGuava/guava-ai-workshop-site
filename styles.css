@@ -1,5 +1,5 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css");
-@import url("https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy.css");
 
 :root {
   --bg: #fff7ef;
@@ -19,7 +19,7 @@
   --radius-lg: 24px;
   --radius-md: 18px;
   --font-body: "Pretendard Variable", "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
-  --font-display: "Gowun Batang", "Pretendard Variable", "Apple SD Gothic Neo", "Malgun Gothic", serif;
+  --font-display: "Paperlogy", "Pretendard Variable", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 }
 
 * {
@@ -182,6 +182,10 @@ h3 {
   margin: 0;
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
 h1,
 h2 {
   font-family: var(--font-display);
@@ -281,18 +285,65 @@ h1 {
 }
 
 .hero-card {
+  position: relative;
   width: min(100%, 510px);
   padding: 18px;
   border-radius: 44px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 239, 222, 0.96));
+  overflow: hidden;
 }
 
-.hero-card img,
-.resolution-panel img {
+.hero-card img {
   display: block;
   width: 100%;
   height: auto;
   border-radius: 26px;
+}
+
+.hero-illustration {
+  opacity: 0.72;
+}
+
+.hero-dashboard {
+  display: grid;
+  gap: 14px;
+  margin-top: -88px;
+  padding: 22px;
+  border-radius: 26px;
+  background: rgba(255, 253, 248, 0.92);
+  border: 1px solid rgba(84, 56, 48, 0.1);
+  position: relative;
+}
+
+.hero-dashboard strong {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+
+.hero-dashboard p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.dashboard-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.dashboard-flow span {
+  min-height: 64px;
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  border-radius: 16px;
+  background: rgba(79, 123, 91, 0.1);
+  color: var(--leaf);
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.35;
 }
 
 .floating-panel {
@@ -760,6 +811,39 @@ h1 {
   padding: 22px;
   border-radius: 30px;
   background: rgba(255, 251, 246, 0.82);
+}
+
+.prompt-flow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.prompt-flow article {
+  min-height: 190px;
+  padding: 22px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(46, 42, 36, 0.08);
+}
+
+.prompt-flow span {
+  display: inline-flex;
+  margin-bottom: 22px;
+  color: var(--guava-deep);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.prompt-flow h3 {
+  margin-bottom: 10px;
+  font-size: 1.18rem;
+}
+
+.prompt-flow p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
 }
 
 .demo-tabs {
@@ -1284,6 +1368,11 @@ h1 {
     width: 100%;
   }
 
+  .dashboard-flow,
+  .prompt-flow {
+    grid-template-columns: 1fr;
+  }
+
   .content-section {
     padding: 34px 0;
   }
@@ -1302,6 +1391,7 @@ h1 {
   .operator-proof-card,
   .harness-step,
   .wiki-board,
+  .prompt-flow article,
   .practice-card,
   .audience-grid article,
   .faq-list article,
