@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Parser Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="workspace">
+      <section class="intake-panel" aria-labelledby="app-title">
+        <div class="brand-row">
+          <div class="brand-mark" aria-hidden="true">PS</div>
+          <div>
+            <h1 id="app-title">Parser Studio</h1>
+            <p>문서, URL, 텍스트를 Markdown, JSON, RAG 번들로 변환합니다.</p>
+          </div>
+        </div>
+
+        <label for="api-base-input">변환 API 주소</label>
+        <input id="api-base-input" type="url" value="http://127.0.0.1:8787" />
+
+        <label for="source-type">입력 종류</label>
+        <select id="source-type">
+          <option value="text">텍스트</option>
+          <option value="url">URL</option>
+          <option value="file">파일</option>
+        </select>
+
+        <label for="source-input">텍스트 또는 URL</label>
+        <textarea id="source-input" rows="10" placeholder="변환할 텍스트나 URL을 입력하세요."></textarea>
+
+        <label for="file-input">파일 업로드</label>
+        <input id="file-input" type="file" />
+
+        <div class="option-grid">
+          <label><input id="write-json" type="checkbox" checked /> JSON/RAG 번들 생성</label>
+          <label><input id="write-candidates" type="checkbox" /> 후보 엔진 결과 저장</label>
+          <label><input id="auto-repair" type="checkbox" checked /> 품질 낮을 때 자동 재시도</label>
+          <label><input id="crawl-url" type="checkbox" /> URL 내부 링크 크롤링</label>
+        </div>
+
+        <div class="crawl-grid">
+          <label for="crawl-depth">크롤 깊이</label>
+          <input id="crawl-depth" type="number" min="0" max="5" value="1" />
+          <label for="crawl-max-pages">최대 페이지</label>
+          <input id="crawl-max-pages" type="number" min="1" max="100" value="10" />
+        </div>
+
+        <button id="convert-button" type="button">변환 시작</button>
+        <p id="status-line" class="status-line">대기 중</p>
+      </section>
+
+      <section class="result-panel" aria-label="변환 결과">
+        <div class="tab-row" role="tablist">
+          <button class="tab-button active" data-tab="markdown" type="button">Markdown</button>
+          <button class="tab-button" data-tab="json" type="button">JSON</button>
+          <button class="tab-button" data-tab="artifacts" type="button">Artifacts</button>
+          <button class="tab-button" data-tab="engines" type="button">Engines</button>
+        </div>
+
+        <pre id="markdown-tab" class="tab-pane active">변환 결과가 여기에 표시됩니다.</pre>
+        <pre id="json-tab" class="tab-pane"></pre>
+        <pre id="artifacts-tab" class="tab-pane"></pre>
+        <pre id="engines-tab" class="tab-pane"></pre>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
