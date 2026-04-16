@@ -11,6 +11,7 @@ const submitDialogClose = document.querySelector(".submit-dialog-close");
 const diagnosisForm = document.querySelector("#diagnosis-form");
 const diagnosisResult = document.querySelector("#diagnosis-result");
 const diagnosisApply = document.querySelector(".diagnosis-apply");
+const packageApplyButtons = Array.from(document.querySelectorAll(".package-apply"));
 
 const diagnosisProfiles = {
   prompt: {
@@ -47,6 +48,29 @@ const defaultDiagnosis = {
 };
 
 let currentDiagnosis = defaultDiagnosis;
+
+const packageProfiles = {
+  starter: {
+    title: "AI 첫걸음 2시간",
+    audience: "왕초보",
+    message: "AI를 처음 켜는 사람도 질문문을 만들고, 표와 안내문 형태의 첫 결과물을 완성하는 수업을 상담받고 싶습니다.",
+  },
+  life: {
+    title: "생활 AI 실습반",
+    audience: "중장년층",
+    message: "병원, 여행, 가족 정보처럼 흩어진 생활 자료를 비교표와 공유 문서로 바꾸는 수업을 상담받고 싶습니다.",
+  },
+  work: {
+    title: "업무 AI 실행반",
+    audience: "실무자",
+    message: "반복 안내문, 문서 초안, 체크리스트를 AI에게 맡기는 업무 흐름 수업을 상담받고 싶습니다.",
+  },
+  bot: {
+    title: "AI 봇 제작 입문",
+    audience: "실무자",
+    message: "목표, 자료, 실행, 검증이 이어지는 작은 AI 작업 흐름과 봇 제작 입문 수업을 상담받고 싶습니다.",
+  },
+};
 
 for (const tab of tabs) {
   tab.addEventListener("click", () => {
@@ -148,6 +172,33 @@ diagnosisApply?.addEventListener("click", () => {
   applicationForm.scrollIntoView({ behavior: "smooth", block: "start" });
   message?.focus({ preventScroll: true });
 });
+
+for (const button of packageApplyButtons) {
+  button.addEventListener("click", () => {
+    if (!applicationForm) {
+      return;
+    }
+
+    const profile = packageProfiles[button.dataset.package] || packageProfiles.starter;
+    const audience = applicationForm.querySelector('select[name="audience"]');
+    const message = applicationForm.querySelector('textarea[name="message"]');
+
+    if (audience) {
+      audience.value = profile.audience;
+    }
+
+    if (message) {
+      message.value = [
+        `관심 수업 패키지: ${profile.title}`,
+        `상담받고 싶은 방향: ${profile.message}`,
+        "가격, 진행 방식, 준비물을 함께 안내받고 싶습니다.",
+      ].join("\n");
+    }
+
+    applicationForm.scrollIntoView({ behavior: "smooth", block: "start" });
+    message?.focus({ preventScroll: true });
+  });
+}
 
 const showSubmitDialog = (title, message) => {
   if (!submitDialog || !submitDialogTitle || !submitDialogMessage) {

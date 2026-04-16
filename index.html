@@ -18,8 +18,8 @@
     <meta property="og:image" content="assets/hero-workshop.svg" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="manifest" href="site.webmanifest" />
-    <link rel="stylesheet" href="styles.css?v=202604160910" />
-    <script src="script.js?v=202604160910" defer></script>
+    <link rel="stylesheet" href="styles.css?v=202604161050" />
+    <script src="script.js?v=202604161050" defer></script>
   </head>
   <body>
     <div class="page-shell">
@@ -33,6 +33,7 @@
         </a>
         <nav class="site-nav">
           <a href="#growth-map">성장지도</a>
+          <a href="#course-packages">수업선택</a>
           <a href="#philosophy">철학</a>
           <a href="#execution-harness">실행 설계</a>
           <a href="#curriculum">커리큘럼</a>
@@ -177,6 +178,126 @@
               </ul>
               <button class="button button-primary diagnosis-apply" type="button">이 내용으로 상담 신청하기</button>
             </aside>
+          </div>
+        </section>
+
+        <section id="course-packages" class="content-section package-section">
+          <div class="section-heading">
+            <p class="eyebrow">CLASS PACKAGES</p>
+            <h2>나에게 맞는 수업 고르기</h2>
+            <p>
+              진단 결과를 보고도 망설여진다면 아래 네 가지 중 가장 가까운 방향을 고르면 됩니다.
+              가격은 수업 인원, 방식, 범위에 따라 상담 후 안내합니다.
+            </p>
+          </div>
+          <div class="package-grid" aria-label="AI 수업 패키지">
+            <article class="package-card package-card-primary">
+              <p class="mini-label">왕초보 추천</p>
+              <h3>AI 첫걸음 2시간</h3>
+              <p>
+                AI를 처음 켜는 사람도 질문문을 만들고, 표와 안내문 형태의 첫 결과물을 완성합니다.
+              </p>
+              <dl>
+                <div>
+                  <dt>대상</dt>
+                  <dd>왕초보, 부모님, AI를 처음 쓰는 분</dd>
+                </div>
+                <div>
+                  <dt>결과물</dt>
+                  <dd>질문 템플릿 3개, 생활 정보 정리표 1개</dd>
+                </div>
+                <div>
+                  <dt>방식</dt>
+                  <dd>1회 2시간 실습</dd>
+                </div>
+              </dl>
+              <strong class="package-price">상담 후 안내</strong>
+              <button
+                class="button button-primary package-apply"
+                type="button"
+                data-package="starter"
+              >
+                패키지 상담 신청하기
+              </button>
+            </article>
+
+            <article class="package-card">
+              <p class="mini-label">생활 활용</p>
+              <h3>생활 AI 실습반</h3>
+              <p>
+                병원, 여행, 가족 정보처럼 흩어진 생활 자료를 비교표와 공유 문서로 바꿉니다.
+              </p>
+              <dl>
+                <div>
+                  <dt>대상</dt>
+                  <dd>가족 정보 정리, 생활 의사결정이 필요한 분</dd>
+                </div>
+                <div>
+                  <dt>결과물</dt>
+                  <dd>병원 비교표, 여행 일정표, 가족 공유 문서</dd>
+                </div>
+                <div>
+                  <dt>방식</dt>
+                  <dd>1회 특강 또는 소규모 워크숍</dd>
+                </div>
+              </dl>
+              <strong class="package-price">상담 후 안내</strong>
+              <button class="button button-secondary package-apply" type="button" data-package="life">
+                패키지 상담 신청하기
+              </button>
+            </article>
+
+            <article class="package-card">
+              <p class="mini-label">업무 활용</p>
+              <h3>업무 AI 실행반</h3>
+              <p>
+                반복 안내문, 문서 초안, 체크리스트를 AI에게 맡기는 업무 흐름을 만듭니다.
+              </p>
+              <dl>
+                <div>
+                  <dt>대상</dt>
+                  <dd>반복 문서와 정리 업무가 많은 실무자</dd>
+                </div>
+                <div>
+                  <dt>결과물</dt>
+                  <dd>업무 안내문, 검토 체크리스트, 반복 프롬프트</dd>
+                </div>
+                <div>
+                  <dt>방식</dt>
+                  <dd>팀 워크숍 또는 개인 실습</dd>
+                </div>
+              </dl>
+              <strong class="package-price">상담 후 안내</strong>
+              <button class="button button-secondary package-apply" type="button" data-package="work">
+                패키지 상담 신청하기
+              </button>
+            </article>
+
+            <article class="package-card">
+              <p class="mini-label">제작 입문</p>
+              <h3>AI 봇 제작 입문</h3>
+              <p>
+                질문 한 번으로 끝나지 않고, 목표와 자료와 검증이 이어지는 작은 AI 작업 흐름을 설계합니다.
+              </p>
+              <dl>
+                <div>
+                  <dt>대상</dt>
+                  <dd>AI 봇, 자동화, 하네스 설계에 관심 있는 분</dd>
+                </div>
+                <div>
+                  <dt>결과물</dt>
+                  <dd>AI 작업 흐름 설계도, 봇 기획서, 검증 루틴</dd>
+                </div>
+                <div>
+                  <dt>방식</dt>
+                  <dd>상담 후 맞춤형 구성</dd>
+                </div>
+              </dl>
+              <strong class="package-price">상담 후 안내</strong>
+              <button class="button button-secondary package-apply" type="button" data-package="bot">
+                패키지 상담 신청하기
+              </button>
+            </article>
           </div>
         </section>
 

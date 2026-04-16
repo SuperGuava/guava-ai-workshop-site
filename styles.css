@@ -623,6 +623,94 @@ h1 {
   background: rgba(255, 250, 240, 0.12);
 }
 
+.package-section {
+  padding-top: 38px;
+}
+
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.package-card {
+  display: grid;
+  gap: 18px;
+  min-height: 460px;
+  padding: 26px;
+  border-radius: 30px;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.95), rgba(248, 255, 244, 0.82)),
+    rgba(255, 251, 246, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow);
+}
+
+.package-card-primary {
+  background:
+    linear-gradient(160deg, rgba(43, 31, 27, 0.94), rgba(79, 123, 91, 0.92)),
+    var(--leaf);
+  color: #fffaf0;
+}
+
+.package-card-primary p,
+.package-card-primary h3,
+.package-card-primary dt,
+.package-card-primary dd,
+.package-card-primary .mini-label,
+.package-card-primary .package-price {
+  color: inherit;
+}
+
+.package-card h3 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2vw, 1.72rem);
+}
+
+.package-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.package-card dl {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.package-card dl div {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.package-card-primary dl div {
+  background: rgba(255, 250, 240, 0.12);
+}
+
+.package-card dt {
+  color: var(--leaf);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.package-card dd {
+  margin: 0;
+  color: var(--text);
+  line-height: 1.55;
+}
+
+.package-price {
+  align-self: end;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--guava-deep);
+}
+
 .operator-proof-section {
   padding-top: 34px;
 }
@@ -1512,6 +1600,7 @@ h1 {
   .growth-path,
   .diagnosis-layout,
   .diagnosis-options,
+  .package-grid,
   .operator-proof-grid,
   .flow-compare,
   .flow-mode-grid,
@@ -1673,6 +1762,7 @@ h1 {
   .readiness-check,
   .diagnosis-choice,
   .diagnosis-result,
+  .package-card,
   .operator-proof-card,
   .flow-card,
   .flow-mode-grid article,
@@ -1717,6 +1807,10 @@ h1 {
   }
 
   .diagnosis-choice {
+    min-height: 0;
+  }
+
+  .package-card {
     min-height: 0;
   }
 

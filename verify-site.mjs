@@ -241,6 +241,22 @@ const checks = [
       script.includes("diagnosisApply"),
   },
   {
+    label: "course package selector section",
+    pass:
+      html.includes('id="course-packages"') &&
+      html.includes("나에게 맞는 수업 고르기") &&
+      html.includes("AI 첫걸음 2시간") &&
+      html.includes("생활 AI 실습반") &&
+      html.includes("업무 AI 실행반") &&
+      html.includes("AI 봇 제작 입문") &&
+      html.includes("상담 후 안내") &&
+      html.includes("패키지 상담 신청하기") &&
+      css.includes(".package-section") &&
+      css.includes(".package-grid") &&
+      css.includes(".package-card") &&
+      script.includes("packageApplyButtons"),
+  },
+  {
     label: "AI execution harness section",
     pass:
       html.includes('id="execution-harness"') &&
