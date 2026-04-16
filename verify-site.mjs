@@ -257,6 +257,56 @@ const checks = [
       script.includes("packageApplyButtons"),
   },
   {
+    label: "post-application next steps section",
+    pass:
+      html.includes('id="next-steps"') &&
+      html.includes("신청 후 이렇게 진행됩니다") &&
+      html.includes("상담 접수") &&
+      html.includes("방향 확인") &&
+      html.includes("일정과 준비물 안내") &&
+      html.includes("수업 준비물") &&
+      css.includes(".next-step-section") &&
+      css.includes(".next-step-grid") &&
+      css.includes(".prep-list"),
+  },
+  {
+    label: "copyable sample kit section",
+    pass:
+      html.includes('id="sample-kit"') &&
+      html.includes("수업 샘플 미리보기") &&
+      html.includes("병원 비교표 샘플") &&
+      html.includes("여행 일정표 샘플") &&
+      html.includes("업무 안내문 샘플") &&
+      html.includes("AI 봇 기획서 샘플") &&
+      html.includes("샘플 문구 복사") &&
+      css.includes(".sample-kit-section") &&
+      css.includes(".sample-kit-grid") &&
+      css.includes(".sample-copy") &&
+      script.includes("sampleCopyButtons"),
+  },
+  {
+    label: "operator proof log section",
+    pass:
+      html.includes('id="proof-log"') &&
+      html.includes("운영자 검증 로그") &&
+      html.includes("에르9") &&
+      html.includes("망고2") &&
+      html.includes("질문 정렬") &&
+      html.includes("실행과 검증") &&
+      css.includes(".proof-log-section") &&
+      css.includes(".proof-log-grid"),
+  },
+  {
+    label: "mobile summary mode",
+    pass:
+      html.includes('class="mobile-summary"') &&
+      html.includes("2시간 실습") &&
+      html.includes("결과물 1개 완성") &&
+      html.includes("왕초보 가능") &&
+      html.includes("상담 후 안내") &&
+      css.includes(".mobile-summary"),
+  },
+  {
     label: "AI execution harness section",
     pass:
       html.includes('id="execution-harness"') &&

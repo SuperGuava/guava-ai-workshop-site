@@ -18,8 +18,8 @@
     <meta property="og:image" content="assets/hero-workshop.svg" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="manifest" href="site.webmanifest" />
-    <link rel="stylesheet" href="styles.css?v=202604161050" />
-    <script src="script.js?v=202604161050" defer></script>
+    <link rel="stylesheet" href="styles.css?v=202604161135" />
+    <script src="script.js?v=202604161135" defer></script>
   </head>
   <body>
     <div class="page-shell">
@@ -60,6 +60,12 @@
               <a class="button button-primary application-link" href="#application-form">30초 상담 신청하기</a>
               <a class="button button-secondary" href="#outcomes">결과물 보기</a>
             </div>
+            <ul class="mobile-summary" aria-label="모바일 핵심 요약">
+              <li><strong>2시간 실습</strong><span>설명보다 직접 만들기</span></li>
+              <li><strong>결과물 1개 완성</strong><span>표, 안내문, 일정표 중 하나</span></li>
+              <li><strong>왕초보 가능</strong><span>질문문부터 같이 작성</span></li>
+              <li><strong>상담 후 안내</strong><span>수업 방식과 준비물 확인</span></li>
+            </ul>
             <ul class="hero-metrics">
               <li>
                 <strong>2시간 실습</strong>
@@ -384,6 +390,34 @@
           </div>
         </section>
 
+        <section id="proof-log" class="content-section proof-log-section">
+          <div class="section-heading">
+            <p class="eyebrow">BUILD LOG</p>
+            <h2>운영자 검증 로그</h2>
+            <p>
+              후기처럼 꾸미지 않고, 직접 운영한 AI 봇에서 검증한 흐름만 수업 언어로 바꿉니다.
+              초보자는 복잡한 시스템을 외우지 않고, 내가 바로 쓸 수 있는 순서만 가져갑니다.
+            </p>
+          </div>
+          <div class="proof-log-grid" aria-label="운영자 검증 로그">
+            <article class="proof-log-card">
+              <span>에르9</span>
+              <h3>중앙 두뇌와 분산 실행</h3>
+              <p>요청을 한곳에서 이해하고, 필요한 도구와 서브 작업을 나눠 실행한 뒤 다시 합칩니다.</p>
+            </article>
+            <article class="proof-log-card">
+              <span>망고2</span>
+              <h3>질문 정렬과 작업 메모리</h3>
+              <p>흩어진 요청을 raw, parsed, triage, compiled 흐름으로 정리해 다음 작업에 이어 씁니다.</p>
+            </article>
+            <article class="proof-log-card">
+              <span>수업 전환</span>
+              <h3>실행과 검증을 초보자 언어로</h3>
+              <p>하네스, 위키, 검증 루틴을 표 만들기, 안내문 고치기, 다시 쓰는 질문문으로 바꿉니다.</p>
+            </article>
+          </div>
+        </section>
+
         <section id="agent-flow" class="content-section agent-flow-section">
           <div class="section-heading">
             <p class="eyebrow">AGENT FLOW PRINCIPLE</p>
@@ -546,6 +580,85 @@
                 <span class="sample-pill">비교해줘</span>
                 <span class="sample-pill">보낼 말로 바꿔줘</span>
               </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="sample-kit" class="content-section sample-kit-section">
+          <div class="section-heading">
+            <p class="eyebrow">SAMPLE KIT</p>
+            <h2>수업 샘플 미리보기</h2>
+            <p>
+              수업에서 다루는 결과물은 거창한 이론이 아니라 바로 복사해서 고쳐 쓸 수 있는 문장입니다.
+              아래 샘플을 눌러 상담 전에 어떤 결과물이 남는지 먼저 확인할 수 있습니다.
+            </p>
+          </div>
+          <div class="sample-kit-grid" aria-label="수업 샘플 미리보기">
+            <article class="sample-kit-card">
+              <span>생활 비교</span>
+              <h3>병원 비교표 샘플</h3>
+              <p>거리, 비용, 예약 난이도, 가족에게 설명할 결론을 한 장으로 정리합니다.</p>
+              <pre>병원 비교표 샘플
+기준: 거리 / 비용 / 예약 가능일 / 주의할 점
+결론: 가족에게 설명하기 쉬운 추천 순서로 정리해 주세요.</pre>
+              <button
+                class="button button-secondary sample-copy"
+                type="button"
+                data-sample="hospital"
+                data-copy-value="병원 비교표 샘플&#10;기준: 거리 / 비용 / 예약 가능일 / 주의할 점&#10;결론: 가족에게 설명하기 쉬운 추천 순서로 정리해 주세요."
+              >
+                샘플 문구 복사
+              </button>
+            </article>
+            <article class="sample-kit-card">
+              <span>가족 일정</span>
+              <h3>여행 일정표 샘플</h3>
+              <p>동선, 식사 조건, 쉬는 시간을 반영해 가족 공유용 일정표로 바꿉니다.</p>
+              <pre>여행 일정표 샘플
+조건: 걷는 시간 적게 / 식사 후보 2개 / 택시 이동 가능
+출력: 오전, 점심, 오후, 저녁 순서의 표로 정리해 주세요.</pre>
+              <button
+                class="button button-secondary sample-copy"
+                type="button"
+                data-sample="travel"
+                data-copy-value="여행 일정표 샘플&#10;조건: 걷는 시간 적게 / 식사 후보 2개 / 택시 이동 가능&#10;출력: 오전, 점심, 오후, 저녁 순서의 표로 정리해 주세요."
+              >
+                샘플 문구 복사
+              </button>
+            </article>
+            <article class="sample-kit-card">
+              <span>업무 문서</span>
+              <h3>업무 안내문 샘플</h3>
+              <p>공지문, 체크리스트, 카톡 안내문을 같은 내용에서 한 번에 만듭니다.</p>
+              <pre>업무 안내문 샘플
+대상: 신규 직원
+목표: 첫날 준비물을 빠짐없이 안내
+출력: 공지문, 체크리스트, 카톡 문구로 나눠 주세요.</pre>
+              <button
+                class="button button-secondary sample-copy"
+                type="button"
+                data-sample="work"
+                data-copy-value="업무 안내문 샘플&#10;대상: 신규 직원&#10;목표: 첫날 준비물을 빠짐없이 안내&#10;출력: 공지문, 체크리스트, 카톡 문구로 나눠 주세요."
+              >
+                샘플 문구 복사
+              </button>
+            </article>
+            <article class="sample-kit-card">
+              <span>AI 제작 입문</span>
+              <h3>AI 봇 기획서 샘플</h3>
+              <p>내 봇이 받을 요청, 확인할 자료, 검증할 기준을 작은 설계서로 정리합니다.</p>
+              <pre>AI 봇 기획서 샘플
+목표: 반복 상담 문의를 정리하는 작은 AI 봇
+흐름: 접수 → 질문 정렬 → 답변 초안 → 검증
+검증 기준: 누락, 과장, 다음 행동을 확인해 주세요.</pre>
+              <button
+                class="button button-secondary sample-copy"
+                type="button"
+                data-sample="bot"
+                data-copy-value="AI 봇 기획서 샘플&#10;목표: 반복 상담 문의를 정리하는 작은 AI 봇&#10;흐름: 접수 → 질문 정렬 → 답변 초안 → 검증&#10;검증 기준: 누락, 과장, 다음 행동을 확인해 주세요."
+              >
+                샘플 문구 복사
+              </button>
             </article>
           </div>
         </section>
@@ -869,6 +982,43 @@
             </article>
           </div>
           <a class="button button-primary application-link reassurance-cta" href="#application-form">걱정 없이 상담 신청하기</a>
+        </section>
+
+        <section id="next-steps" class="content-section next-step-section">
+          <div class="section-heading">
+            <p class="eyebrow">AFTER APPLY</p>
+            <h2>신청 후 이렇게 진행됩니다</h2>
+            <p>
+              신청서를 보내면 바로 결제부터 요구하지 않습니다. 먼저 어떤 상황인지 확인하고,
+              맞는 수업 방향과 준비물을 안내한 뒤 일정을 정합니다.
+            </p>
+          </div>
+          <div class="next-step-grid" aria-label="신청 후 진행 순서">
+            <article class="next-step-card">
+              <span>01</span>
+              <h3>상담 접수</h3>
+              <p>작성한 내용이 ninefire@naver.com으로 접수되고, 필요한 내용을 먼저 확인합니다.</p>
+            </article>
+            <article class="next-step-card">
+              <span>02</span>
+              <h3>방향 확인</h3>
+              <p>왕초보 실습, 생활 활용, 업무 활용, AI 봇 제작 입문 중 맞는 방향을 좁힙니다.</p>
+            </article>
+            <article class="next-step-card">
+              <span>03</span>
+              <h3>일정과 준비물 안내</h3>
+              <p>수업 방식, 예상 시간, 준비물을 정리해 안내하고 무리 없는 일정으로 조율합니다.</p>
+            </article>
+          </div>
+          <div class="prep-list" aria-label="수업 준비물">
+            <p class="mini-label">수업 준비물</p>
+            <ul>
+              <li>노트북 또는 스마트폰</li>
+              <li>평소 사용하는 AI 계정</li>
+              <li>정리하고 싶은 생활 또는 업무 주제 1개</li>
+              <li>컴퓨터 실력은 없어도 괜찮습니다</li>
+            </ul>
+          </div>
         </section>
 
         <section id="contact" class="content-section contact-section">

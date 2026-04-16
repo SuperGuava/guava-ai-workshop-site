@@ -2,6 +2,7 @@ const tabs = Array.from(document.querySelectorAll(".demo-tab"));
 const panels = Array.from(document.querySelectorAll(".demo-card"));
 const copyButton = document.querySelector(".copy-button");
 const toast = document.querySelector(".copy-toast");
+const sampleCopyButtons = Array.from(document.querySelectorAll(".sample-copy"));
 const applicationForm = document.querySelector("#application-form");
 const applicationStatus = document.querySelector("#application-status");
 const submitDialog = document.querySelector(".submit-dialog");
@@ -86,6 +87,27 @@ for (const tab of tabs) {
   });
 }
 
+const showCopyToast = (message = "문의 문구를 복사했습니다.") => {
+  if (!toast) {
+    return;
+  }
+
+  toast.textContent = message;
+  toast.classList.add("is-visible");
+  window.setTimeout(() => toast.classList.remove("is-visible"), 1800);
+};
+
+const copyText = async (text, fallbackSource) => {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch (_error) {
+    fallbackSource?.focus();
+    fallbackSource?.select?.();
+    return false;
+  }
+};
+
 if (copyButton) {
   copyButton.addEventListener("click", async () => {
     const targetId = copyButton.dataset.copyTarget;
@@ -95,13 +117,26 @@ if (copyButton) {
       return;
     }
 
-    try {
-      await navigator.clipboard.writeText(source.value);
-      toast?.classList.add("is-visible");
-      window.setTimeout(() => toast?.classList.remove("is-visible"), 1800);
-    } catch (_error) {
-      source.focus();
-      source.select();
+    const copied = await copyText(source.value, source);
+
+    if (copied) {
+      showCopyToast();
+    }
+  });
+}
+
+for (const button of sampleCopyButtons) {
+  button.addEventListener("click", async () => {
+    const value = button.dataset.copyValue;
+
+    if (!value) {
+      return;
+    }
+
+    const copied = await copyText(value);
+
+    if (copied) {
+      showCopyToast("샘플 문구를 복사했습니다.");
     }
   });
 }
