@@ -1171,6 +1171,156 @@ h1 {
   align-self: end;
 }
 
+.mission-section {
+  padding: 44px;
+  border-radius: 40px;
+  background:
+    linear-gradient(135deg, rgba(255, 251, 244, 0.98), rgba(235, 245, 232, 0.9)),
+    rgba(255, 251, 246, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.84);
+  box-shadow: var(--shadow);
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.mission-card {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  min-height: 410px;
+  padding: 24px;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(46, 42, 36, 0.08);
+}
+
+.mission-card-strong {
+  background:
+    linear-gradient(180deg, rgba(43, 31, 27, 0.9), rgba(79, 123, 91, 0.88)),
+    rgba(43, 31, 27, 0.92);
+  color: #fffaf0;
+}
+
+.mission-card span {
+  width: fit-content;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(79, 123, 91, 0.12);
+  color: var(--leaf);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.mission-card-strong span {
+  background: rgba(255, 250, 240, 0.14);
+  color: var(--sun);
+}
+
+.mission-card h3 {
+  margin: 0;
+  font-size: 1.22rem;
+}
+
+.mission-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.68;
+}
+
+.mission-card-strong p {
+  color: rgba(255, 250, 240, 0.84);
+}
+
+.mission-card dl {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.mission-card dl div {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(79, 123, 91, 0.08);
+}
+
+.mission-card-strong dl div {
+  background: rgba(255, 250, 240, 0.12);
+}
+
+.mission-card dt {
+  color: var(--leaf);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.mission-card-strong dt {
+  color: var(--sun);
+}
+
+.mission-card dd {
+  margin: 0;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.mission-card-strong dd {
+  color: #fffaf0;
+}
+
+.mission-apply {
+  align-self: end;
+}
+
+.mission-gallery {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.78fr) minmax(0, 1.22fr);
+  gap: 18px;
+  margin-top: 18px;
+  padding: 24px;
+  border-radius: 26px;
+  background: rgba(255, 253, 248, 0.78);
+  border: 1px solid rgba(46, 42, 36, 0.08);
+}
+
+.mission-gallery h3 {
+  margin: 0;
+  font-size: 1.28rem;
+}
+
+.mission-gallery ul {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mission-gallery li {
+  display: grid;
+  gap: 6px;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(79, 123, 91, 0.08);
+}
+
+.mission-gallery strong {
+  color: var(--leaf);
+}
+
+.mission-gallery span {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
 .section-heading {
   max-width: 760px;
   margin-bottom: 28px;
@@ -1826,6 +1976,9 @@ h1 {
   .harness-layout,
   .harness-steps,
   .sample-kit-grid,
+  .mission-grid,
+  .mission-gallery,
+  .mission-gallery ul,
   .split-content,
   .timeline,
   .philosophy-grid,
@@ -1996,6 +2149,8 @@ h1 {
   .harness-step,
   .wiki-board,
   .sample-kit-card,
+  .mission-card,
+  .mission-gallery,
   .prompt-flow article,
   .practice-card,
   .audience-grid article,
@@ -2015,6 +2170,7 @@ h1 {
   }
 
   .sample-kit-section,
+  .mission-section,
   .next-step-section,
   .proof-log-section {
     padding: 26px;
@@ -2035,6 +2191,7 @@ h1 {
 
   .proof-log-card,
   .sample-kit-card,
+  .mission-card,
   .next-step-card {
     min-height: 0;
   }

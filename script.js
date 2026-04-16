@@ -13,6 +13,7 @@ const diagnosisForm = document.querySelector("#diagnosis-form");
 const diagnosisResult = document.querySelector("#diagnosis-result");
 const diagnosisApply = document.querySelector(".diagnosis-apply");
 const packageApplyButtons = Array.from(document.querySelectorAll(".package-apply"));
+const missionApplyButtons = Array.from(document.querySelectorAll(".mission-apply"));
 
 const diagnosisProfiles = {
   prompt: {
@@ -70,6 +71,29 @@ const packageProfiles = {
     title: "AI 봇 제작 입문",
     audience: "실무자",
     message: "목표, 자료, 실행, 검증이 이어지는 작은 AI 작업 흐름과 봇 제작 입문 수업을 상담받고 싶습니다.",
+  },
+};
+
+const missionProfiles = {
+  hospital: {
+    title: "병원 비교표 만들기",
+    audience: "중장년층",
+    message: "가족이 이해하기 쉬운 병원 비교표와 공유 문구를 만드는 미션을 중심으로 상담받고 싶습니다.",
+  },
+  travel: {
+    title: "여행 일정 AI에게 맡기기",
+    audience: "중장년층",
+    message: "부모님이나 가족 여행 일정을 조건에 맞춰 표와 카톡 안내문으로 만드는 미션을 상담받고 싶습니다.",
+  },
+  work: {
+    title: "업무 안내문 자동 생성하기",
+    audience: "실무자",
+    message: "반복 안내문을 공지문, 체크리스트, 메시지 초안으로 바꾸는 업무 AI 미션을 상담받고 싶습니다.",
+  },
+  bot: {
+    title: "내 AI 봇 설계서 만들기",
+    audience: "실무자",
+    message: "반복 요청을 접수, 정렬, 실행, 검증 흐름으로 바꾸는 AI 봇 설계 미션을 상담받고 싶습니다.",
   },
 };
 
@@ -227,6 +251,33 @@ for (const button of packageApplyButtons) {
         `관심 수업 패키지: ${profile.title}`,
         `상담받고 싶은 방향: ${profile.message}`,
         "가격, 진행 방식, 준비물을 함께 안내받고 싶습니다.",
+      ].join("\n");
+    }
+
+    applicationForm.scrollIntoView({ behavior: "smooth", block: "start" });
+    message?.focus({ preventScroll: true });
+  });
+}
+
+for (const button of missionApplyButtons) {
+  button.addEventListener("click", () => {
+    if (!applicationForm) {
+      return;
+    }
+
+    const profile = missionProfiles[button.dataset.mission] || missionProfiles.hospital;
+    const audience = applicationForm.querySelector('select[name="audience"]');
+    const message = applicationForm.querySelector('textarea[name="message"]');
+
+    if (audience) {
+      audience.value = profile.audience;
+    }
+
+    if (message) {
+      message.value = [
+        `관심 AI 미션: ${profile.title}`,
+        `상담받고 싶은 방향: ${profile.message}`,
+        "수업 시간, 준비물, 결과물 예시를 함께 안내받고 싶습니다.",
       ].join("\n");
     }
 

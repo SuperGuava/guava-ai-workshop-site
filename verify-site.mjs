@@ -285,6 +285,22 @@ const checks = [
       script.includes("sampleCopyButtons"),
   },
   {
+    label: "AI workshop mission cards section",
+    pass:
+      html.includes('id="mission-lab"') &&
+      html.includes("오늘 완성하는 AI 미션 4개") &&
+      html.includes("병원 비교표 만들기") &&
+      html.includes("여행 일정 AI에게 맡기기") &&
+      html.includes("업무 안내문 자동 생성하기") &&
+      html.includes("내 AI 봇 설계서 만들기") &&
+      html.includes("결과물 갤러리") &&
+      html.includes("이 미션으로 상담 신청하기") &&
+      css.includes(".mission-section") &&
+      css.includes(".mission-grid") &&
+      css.includes(".mission-gallery") &&
+      script.includes("missionApplyButtons"),
+  },
+  {
     label: "operator proof log section",
     pass:
       html.includes('id="proof-log"') &&
