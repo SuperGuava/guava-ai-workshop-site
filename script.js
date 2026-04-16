@@ -8,6 +8,45 @@ const submitDialog = document.querySelector(".submit-dialog");
 const submitDialogTitle = document.querySelector("#submit-dialog-title");
 const submitDialogMessage = document.querySelector("#submit-dialog-message");
 const submitDialogClose = document.querySelector(".submit-dialog-close");
+const diagnosisForm = document.querySelector("#diagnosis-form");
+const diagnosisResult = document.querySelector("#diagnosis-result");
+const diagnosisApply = document.querySelector(".diagnosis-apply");
+
+const diagnosisProfiles = {
+  prompt: {
+    title: "AI 왕초보 실습형 수업",
+    body: "먼저 질문문 만들기, 결과물 확인, 다시 쓰는 템플릿 저장부터 시작하면 좋습니다.",
+    audience: "왕초보",
+    points: ["질문문 만들기", "결과물 검증하기", "다시 쓰는 템플릿 남기기"],
+  },
+  work: {
+    title: "업무 결과물 제작 수업",
+    body: "반복 안내문, 비교표, 정리표를 AI에게 맡기고 바로 쓰는 결과물로 바꾸는 흐름이 맞습니다.",
+    audience: "실무자",
+    points: ["반복 업무 찾기", "표와 안내문 만들기", "검토 루틴 만들기"],
+  },
+  family: {
+    title: "생활형 AI 안내 수업",
+    body: "부모님이나 가족에게 설명하기 쉬운 생활 예시로 시작하고, 여행·병원·정보 정리를 함께 실습합니다.",
+    audience: "중장년층",
+    points: ["쉬운 말로 질문하기", "생활 정보 정리하기", "가족에게 설명하기"],
+  },
+  bot: {
+    title: "AI 작업 흐름 설계 수업",
+    body: "질문 한 번으로 끝내지 않고 목표, 자료, 실행, 검증이 이어지는 작은 AI 봇 흐름으로 확장합니다.",
+    audience: "실무자",
+    points: ["중앙 문맥 잡기", "작업 모드 나누기", "검증 루틴 붙이기"],
+  },
+};
+
+const defaultDiagnosis = {
+  title: "AI 왕초보 실습형 수업",
+  body: "먼저 내 문제를 AI에게 시키는 문장을 만들고, 결과물을 표나 안내문으로 바꾸는 흐름부터 시작하면 좋습니다.",
+  audience: "왕초보",
+  points: ["질문문 만들기", "결과물 검증하기", "다시 쓰는 템플릿 남기기"],
+};
+
+let currentDiagnosis = defaultDiagnosis;
 
 for (const tab of tabs) {
   tab.addEventListener("click", () => {
@@ -42,6 +81,73 @@ if (copyButton) {
     }
   });
 }
+
+const renderDiagnosis = (profile) => {
+  if (!diagnosisResult) {
+    return;
+  }
+
+  currentDiagnosis = profile;
+  const title = diagnosisResult.querySelector("h3");
+  const body = diagnosisResult.querySelector("p:not(.mini-label)");
+  const list = diagnosisResult.querySelector("ul");
+
+  if (title) {
+    title.textContent = profile.title;
+  }
+
+  if (body) {
+    body.textContent = profile.body;
+  }
+
+  if (list) {
+    list.innerHTML = profile.points.map((point) => `<li>${point}</li>`).join("");
+  }
+};
+
+const updateDiagnosisResult = () => {
+  if (!diagnosisForm) {
+    return;
+  }
+
+  const selected = Array.from(diagnosisForm.querySelectorAll('input[name="diagnosis"]:checked')).map((item) => item.value);
+  const priority = ["bot", "work", "family", "prompt"];
+  const match = priority.find((item) => selected.includes(item));
+
+  renderDiagnosis(match ? diagnosisProfiles[match] : defaultDiagnosis);
+};
+
+diagnosisForm?.addEventListener("change", updateDiagnosisResult);
+
+diagnosisApply?.addEventListener("click", () => {
+  if (!applicationForm) {
+    return;
+  }
+
+  const audience = applicationForm.querySelector('select[name="audience"]');
+  const message = applicationForm.querySelector('textarea[name="message"]');
+  const selectedLabels = diagnosisForm
+    ? Array.from(diagnosisForm.querySelectorAll('input[name="diagnosis"]:checked'))
+        .map((item) => item.closest("label")?.querySelector("strong")?.textContent)
+        .filter(Boolean)
+    : [];
+
+  if (audience) {
+    audience.value = currentDiagnosis.audience;
+  }
+
+  if (message) {
+    const selectedText = selectedLabels.length > 0 ? selectedLabels.join(", ") : "AI 왕초보 실습형 수업 상담";
+    message.value = [
+      `30초 AI 진단 결과: ${currentDiagnosis.title}`,
+      `선택한 상황: ${selectedText}`,
+      `상담받고 싶은 방향: ${currentDiagnosis.body}`,
+    ].join("\n");
+  }
+
+  applicationForm.scrollIntoView({ behavior: "smooth", block: "start" });
+  message?.focus({ preventScroll: true });
+});
 
 const showSubmitDialog = (title, message) => {
   if (!submitDialog || !submitDialogTitle || !submitDialogMessage) {

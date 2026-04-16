@@ -222,6 +222,25 @@ const checks = [
       css.includes(".readiness-check"),
   },
   {
+    label: "30-second AI diagnosis section",
+    pass:
+      html.includes('id="ai-diagnosis"') &&
+      html.includes("나는 어떤 AI 수업이 맞을까?") &&
+      html.includes("30초 AI 진단") &&
+      html.includes("AI를 켜도 뭘 물어볼지 모르겠다") &&
+      html.includes("반복 업무를 줄이고 싶다") &&
+      html.includes("부모님이나 가족에게 알려주고 싶다") &&
+      html.includes("내 AI 봇이나 자동화 흐름을 만들고 싶다") &&
+      html.includes('id="diagnosis-result"') &&
+      html.includes("추천 수업 방향") &&
+      css.includes(".diagnosis-section") &&
+      css.includes(".diagnosis-options") &&
+      css.includes(".diagnosis-result") &&
+      script.includes('document.querySelector("#diagnosis-form")') &&
+      script.includes("updateDiagnosisResult") &&
+      script.includes("diagnosisApply"),
+  },
+  {
     label: "AI execution harness section",
     pass:
       html.includes('id="execution-harness"') &&

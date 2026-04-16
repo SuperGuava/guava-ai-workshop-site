@@ -531,6 +531,98 @@ h1 {
   background: rgba(255, 250, 240, 0.12);
 }
 
+.diagnosis-section {
+  padding: 46px 34px;
+  border-radius: 44px;
+  background:
+    linear-gradient(145deg, rgba(240, 248, 236, 0.96), rgba(255, 246, 236, 0.92)),
+    rgba(255, 251, 246, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  box-shadow: var(--shadow);
+}
+
+.diagnosis-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.diagnosis-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.diagnosis-choice {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  min-height: 160px;
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(46, 42, 36, 0.08);
+  cursor: pointer;
+}
+
+.diagnosis-choice input {
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+  accent-color: var(--guava-deep);
+}
+
+.diagnosis-choice strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.06rem;
+}
+
+.diagnosis-choice small {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.diagnosis-result {
+  display: grid;
+  align-content: space-between;
+  gap: 18px;
+  padding: 28px;
+  border-radius: 28px;
+  background: linear-gradient(160deg, rgba(43, 31, 27, 0.94), rgba(79, 123, 91, 0.9));
+  color: #fffaf0;
+}
+
+.diagnosis-result .mini-label,
+.diagnosis-result h3,
+.diagnosis-result p,
+.diagnosis-result li {
+  color: inherit;
+}
+
+.diagnosis-result p,
+.diagnosis-result li {
+  margin: 0;
+  opacity: 0.88;
+  line-height: 1.68;
+}
+
+.diagnosis-result ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.diagnosis-result li {
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255, 250, 240, 0.12);
+}
+
 .operator-proof-section {
   padding-top: 34px;
 }
@@ -1418,6 +1510,8 @@ h1 {
   .trust-strip,
   .growth-layout,
   .growth-path,
+  .diagnosis-layout,
+  .diagnosis-options,
   .operator-proof-grid,
   .flow-compare,
   .flow-mode-grid,
@@ -1577,6 +1671,8 @@ h1 {
   .outcome-card,
   .growth-card,
   .readiness-check,
+  .diagnosis-choice,
+  .diagnosis-result,
   .operator-proof-card,
   .flow-card,
   .flow-mode-grid article,
@@ -1613,6 +1709,15 @@ h1 {
   .growth-section {
     padding: 26px;
     border-radius: 26px;
+  }
+
+  .diagnosis-section {
+    padding: 26px;
+    border-radius: 26px;
+  }
+
+  .diagnosis-choice {
+    min-height: 0;
   }
 
   .growth-card {
