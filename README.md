@@ -6,6 +6,7 @@
 - `index.html`: 메인 페이지
 - `styles.css`: 전체 스타일
 - `script.js`: 탭 전환 및 상담 문구 복사 기능
+- `AGENTS.md`: AI 작업자가 먼저 읽어야 할 작업 지침
 - `DESIGN.md`: AI 에이전트가 사이트를 수정할 때 지켜야 할 디자인 기준문서
 - `site.webmanifest`: PWA/브라우저 메타 설정
 - `netlify.toml`: Netlify 배포 설정
@@ -24,6 +25,13 @@
 ```bash
 node guava-ai-workshop-site/verify-site.mjs
 ```
+
+## AI 작업자 사용법
+
+- UI, 문구, 색상, 폰트, 섹션, 모바일 레이아웃을 수정하기 전에는 `AGENTS.md`와 `DESIGN.md`를 먼저 읽습니다.
+- `DESIGN.md`는 구아바의 AI 공방 전용 디자인 기준문서입니다.
+- 외부 DESIGN.md를 그대로 덮어쓰지 말고, 현재 브랜드 정체성과 모바일 규칙을 유지합니다.
+- 수정 후에는 위 검증 명령을 실행합니다.
 
 ## 배포 가이드
 
