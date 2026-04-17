@@ -6,6 +6,7 @@
 - `index.html`: 메인 페이지
 - `styles.css`: 전체 스타일
 - `script.js`: 탭 전환 및 상담 문구 복사 기능
+- `DESIGN.md`: AI 에이전트가 사이트를 수정할 때 지켜야 할 디자인 기준문서
 - `site.webmanifest`: PWA/브라우저 메타 설정
 - `netlify.toml`: Netlify 배포 설정
 - `vercel.json`: Vercel 배포 설정
