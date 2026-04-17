@@ -208,6 +208,25 @@ const checks = [
       css.includes(".flow-mode-grid"),
   },
   {
+    label: "AI structure not model section",
+    pass:
+      html.includes('id="ai-work-structure"') &&
+      html.includes("AI가 막히는 이유는 모델이 아니라 구조입니다") &&
+      html.includes("문제는 모델이 아니라 AI가 일하는 구조일 수 있습니다") &&
+      html.includes("Agent = Model + Harness") &&
+      html.includes("모델은 두뇌이고, 하네스는 그 두뇌가 실제 일을 하게 만드는 운영 구조입니다") &&
+      html.includes("하네스 5요소") &&
+      html.includes("목표") &&
+      html.includes("맥락") &&
+      html.includes("도구") &&
+      html.includes("검증") &&
+      html.includes("기억") &&
+      html.includes("수업에서 만드는 작은 하네스") &&
+      css.includes(".structure-section") &&
+      css.includes(".structure-equation") &&
+      css.includes(".structure-grid"),
+  },
+  {
     label: "AI growth map section",
     pass:
       html.includes('id="growth-map"') &&
