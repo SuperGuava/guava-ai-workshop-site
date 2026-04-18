@@ -260,6 +260,13 @@ Do not overuse strong panels. One strong panel per section is usually enough.
 - Each package should include target, output, format, and consultation CTA.
 - Price may remain "상담 후 안내" unless exact pricing is intentionally added.
 
+### AI Design Lab
+- Translate AI design trends into a beginner-friendly outcome workflow.
+- Do not promote a specific vendor product as the main message.
+- Preferred flow: idea/materials -> first draft -> conversational editing -> share/export/implementation.
+- Outcome examples may include Canva draft, PDF guide, PPTX presentation, and HTML landing page.
+- Connect this section to `DESIGN.md` as a practical example of brand standards guiding AI-made visual results.
+
 ### Growth Map
 - Shows progression from AI user to AI maker.
 - Keep levels easy to understand.

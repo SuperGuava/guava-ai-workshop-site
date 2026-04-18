@@ -250,6 +250,7 @@ const checks = [
       html.includes("반복 업무를 줄이고 싶다") &&
       html.includes("부모님이나 가족에게 알려주고 싶다") &&
       html.includes("내 AI 봇이나 자동화 흐름을 만들고 싶다") &&
+      html.includes("아이디어를 시각 결과물로 만들고 싶다") &&
       html.includes('id="diagnosis-result"') &&
       html.includes("추천 수업 방향") &&
       css.includes(".diagnosis-section") &&
@@ -257,7 +258,23 @@ const checks = [
       css.includes(".diagnosis-result") &&
       script.includes('document.querySelector("#diagnosis-form")') &&
       script.includes("updateDiagnosisResult") &&
+      script.includes("AI 디자인 공방 수업") &&
       script.includes("diagnosisApply"),
+  },
+  {
+    label: "AI design lab section",
+    pass:
+      html.includes('id="design-lab"') &&
+      html.includes("AI DESIGN LAB") &&
+      html.includes("아이디어가 시안이 되고, 시안이 결과물이 됩니다") &&
+      html.includes("아이디어 → 시안 → 수정 → 공유/구현") &&
+      html.includes("Canva 초안") &&
+      html.includes("PPTX 발표자료") &&
+      html.includes("HTML 랜딩페이지") &&
+      css.includes(".design-lab-section") &&
+      css.includes(".design-lab-steps") &&
+      script.includes("designApplyButton") &&
+      script.includes("AI 디자인 공방"),
   },
   {
     label: "course package selector section",

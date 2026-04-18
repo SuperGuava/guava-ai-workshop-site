@@ -14,6 +14,7 @@ const diagnosisResult = document.querySelector("#diagnosis-result");
 const diagnosisApply = document.querySelector(".diagnosis-apply");
 const packageApplyButtons = Array.from(document.querySelectorAll(".package-apply"));
 const missionApplyButtons = Array.from(document.querySelectorAll(".mission-apply"));
+const designApplyButton = document.querySelector(".design-apply");
 
 const diagnosisProfiles = {
   prompt: {
@@ -39,6 +40,12 @@ const diagnosisProfiles = {
     body: "질문 한 번으로 끝내지 않고 목표, 자료, 실행, 검증이 이어지는 작은 AI 봇 흐름으로 확장합니다.",
     audience: "실무자",
     points: ["중앙 문맥 잡기", "작업 모드 나누기", "검증 루틴 붙이기"],
+  },
+  design: {
+    title: "AI 디자인 공방 수업",
+    body: "아이디어와 기존 자료를 브랜드 기준에 맞는 발표자료, 카드뉴스, 랜딩페이지 초안으로 바꾸는 흐름이 맞습니다.",
+    audience: "실무자",
+    points: ["자료를 시안으로 바꾸기", "브랜드 기준 적용하기", "대화로 배치와 문구 고치기"],
   },
 };
 
@@ -95,6 +102,12 @@ const missionProfiles = {
     audience: "실무자",
     message: "반복 요청을 접수, 정렬, 실행, 검증 흐름으로 바꾸는 AI 봇 설계 미션을 상담받고 싶습니다.",
   },
+};
+
+const designLabProfile = {
+  title: "AI 디자인 공방",
+  audience: "실무자",
+  message: "아이디어, 메모, 기존 문서나 웹페이지를 AI와 함께 발표자료, 카드뉴스, Canva 초안, HTML 랜딩페이지 같은 시각 결과물로 바꾸는 수업을 상담받고 싶습니다.",
 };
 
 for (const tab of tabs) {
@@ -194,7 +207,7 @@ const updateDiagnosisResult = () => {
   }
 
   const selected = Array.from(diagnosisForm.querySelectorAll('input[name="diagnosis"]:checked')).map((item) => item.value);
-  const priority = ["bot", "work", "family", "prompt"];
+  const priority = ["design", "bot", "work", "family", "prompt"];
   const match = priority.find((item) => selected.includes(item));
 
   renderDiagnosis(match ? diagnosisProfiles[match] : defaultDiagnosis);
@@ -285,6 +298,30 @@ for (const button of missionApplyButtons) {
     message?.focus({ preventScroll: true });
   });
 }
+
+designApplyButton?.addEventListener("click", () => {
+  if (!applicationForm) {
+    return;
+  }
+
+  const audience = applicationForm.querySelector('select[name="audience"]');
+  const message = applicationForm.querySelector('textarea[name="message"]');
+
+  if (audience) {
+    audience.value = designLabProfile.audience;
+  }
+
+  if (message) {
+    message.value = [
+      `관심 수업 방향: ${designLabProfile.title}`,
+      `상담받고 싶은 방향: ${designLabProfile.message}`,
+      "수업에서 만들 수 있는 결과물 예시와 준비물을 함께 안내받고 싶습니다.",
+    ].join("\n");
+  }
+
+  applicationForm.scrollIntoView({ behavior: "smooth", block: "start" });
+  message?.focus({ preventScroll: true });
+});
 
 const showSubmitDialog = (title, message) => {
   if (!submitDialog || !submitDialogTitle || !submitDialogMessage) {
