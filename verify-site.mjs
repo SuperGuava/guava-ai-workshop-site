@@ -373,6 +373,23 @@ const checks = [
       css.includes(".wiki-board"),
   },
   {
+    label: "personal AI workspace section",
+    pass:
+      html.includes('id="personal-workspace"') &&
+      html.includes("수업이 끝나면, 나만의 AI 작업장이 남습니다") &&
+      html.includes("내 질문 템플릿") &&
+      html.includes("반복 업무 실행 순서") &&
+      html.includes("검증 체크리스트") &&
+      html.includes("개인 AI 사용 위키") &&
+      html.includes("이 작업장으로 상담 신청하기") &&
+      css.includes(".workspace-section") &&
+      css.includes(".workspace-layout") &&
+      css.includes(".workspace-artifact-grid") &&
+      script.includes("workspaceApplyButton") &&
+      script.includes("personalWorkspaceProfile") &&
+      script.includes("개인 AI 작업장"),
+  },
+  {
     label: "deployment README",
     pass: existsSync(resolve(root, "README.md")),
   },

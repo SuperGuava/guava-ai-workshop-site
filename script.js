@@ -15,6 +15,7 @@ const diagnosisApply = document.querySelector(".diagnosis-apply");
 const packageApplyButtons = Array.from(document.querySelectorAll(".package-apply"));
 const missionApplyButtons = Array.from(document.querySelectorAll(".mission-apply"));
 const designApplyButton = document.querySelector(".design-apply");
+const workspaceApplyButton = document.querySelector(".workspace-apply");
 
 const diagnosisProfiles = {
   prompt: {
@@ -108,6 +109,12 @@ const designLabProfile = {
   title: "AI 디자인 공방",
   audience: "실무자",
   message: "아이디어, 메모, 기존 문서나 웹페이지를 AI와 함께 발표자료, 카드뉴스, Canva 초안, HTML 랜딩페이지 같은 시각 결과물로 바꾸는 수업을 상담받고 싶습니다.",
+};
+
+const personalWorkspaceProfile = {
+  title: "개인 AI 작업장 만들기",
+  audience: "실무자",
+  message: "수업 후에도 다시 쓸 수 있는 개인 AI 작업장을 만들고 싶습니다. 내 질문 템플릿, 반복 업무 실행 순서, 검증 체크리스트, 개인 AI 사용 위키를 함께 상담받고 싶습니다.",
 };
 
 for (const tab of tabs) {
@@ -316,6 +323,30 @@ designApplyButton?.addEventListener("click", () => {
       `관심 수업 방향: ${designLabProfile.title}`,
       `상담받고 싶은 방향: ${designLabProfile.message}`,
       "수업에서 만들 수 있는 결과물 예시와 준비물을 함께 안내받고 싶습니다.",
+    ].join("\n");
+  }
+
+  applicationForm.scrollIntoView({ behavior: "smooth", block: "start" });
+  message?.focus({ preventScroll: true });
+});
+
+workspaceApplyButton?.addEventListener("click", () => {
+  if (!applicationForm) {
+    return;
+  }
+
+  const audience = applicationForm.querySelector('select[name="audience"]');
+  const message = applicationForm.querySelector('textarea[name="message"]');
+
+  if (audience) {
+    audience.value = personalWorkspaceProfile.audience;
+  }
+
+  if (message) {
+    message.value = [
+      `관심 수업 방향: ${personalWorkspaceProfile.title}`,
+      `상담받고 싶은 방향: ${personalWorkspaceProfile.message}`,
+      "내 상황에 맞는 작업장 예시와 수업 후 남는 결과물을 함께 안내받고 싶습니다.",
     ].join("\n");
   }
 
