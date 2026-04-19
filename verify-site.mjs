@@ -293,6 +293,25 @@ const checks = [
       script.includes("packageApplyButtons"),
   },
   {
+    label: "AI video docent course section",
+    pass:
+      html.includes('id="video-docent"') &&
+      html.includes("AI 영상 해설 공방") &&
+      html.includes("좋은 AI 유튜브를 혼자 보지 않고, 같이 보며 내 일로 바꾸는 수업입니다") &&
+      html.includes("박물관 해설사처럼") &&
+      html.includes("같이 보고 멈춰서 설명") &&
+      html.includes("내 화면에서 같이 실습") &&
+      html.includes("개인 AI 작업장에 저장") &&
+      html.includes("영상 해설 공방 상담 신청하기") &&
+      css.includes(".video-docent-section") &&
+      css.includes(".video-docent-layout") &&
+      css.includes(".video-docent-steps") &&
+      css.includes(".video-docent-apply") &&
+      script.includes("videoDocentApplyButton") &&
+      script.includes("videoDocentProfile") &&
+      script.includes("AI 영상 해설 공방"),
+  },
+  {
     label: "post-application next steps section",
     pass:
       html.includes('id="next-steps"') &&

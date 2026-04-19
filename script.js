@@ -16,6 +16,7 @@ const packageApplyButtons = Array.from(document.querySelectorAll(".package-apply
 const missionApplyButtons = Array.from(document.querySelectorAll(".mission-apply"));
 const designApplyButton = document.querySelector(".design-apply");
 const workspaceApplyButton = document.querySelector(".workspace-apply");
+const videoDocentApplyButton = document.querySelector(".video-docent-apply");
 
 const diagnosisProfiles = {
   prompt: {
@@ -115,6 +116,12 @@ const personalWorkspaceProfile = {
   title: "개인 AI 작업장 만들기",
   audience: "실무자",
   message: "수업 후에도 다시 쓸 수 있는 개인 AI 작업장을 만들고 싶습니다. 내 질문 템플릿, 반복 업무 실행 순서, 검증 체크리스트, 개인 AI 사용 위키를 함께 상담받고 싶습니다.",
+};
+
+const videoDocentProfile = {
+  title: "AI 영상 해설 공방",
+  audience: "왕초보",
+  message: "좋은 AI 유튜브를 혼자 보지 않고 같이 보면서 따라 해보고 싶습니다. 영상에서 막히는 장면을 해설받고, 내 화면에서 직접 실습한 뒤 개인 AI 작업장에 남길 질문 템플릿과 체크리스트까지 만들고 싶습니다.",
 };
 
 for (const tab of tabs) {
@@ -347,6 +354,30 @@ workspaceApplyButton?.addEventListener("click", () => {
       `관심 수업 방향: ${personalWorkspaceProfile.title}`,
       `상담받고 싶은 방향: ${personalWorkspaceProfile.message}`,
       "내 상황에 맞는 작업장 예시와 수업 후 남는 결과물을 함께 안내받고 싶습니다.",
+    ].join("\n");
+  }
+
+  applicationForm.scrollIntoView({ behavior: "smooth", block: "start" });
+  message?.focus({ preventScroll: true });
+});
+
+videoDocentApplyButton?.addEventListener("click", () => {
+  if (!applicationForm) {
+    return;
+  }
+
+  const audience = applicationForm.querySelector('select[name="audience"]');
+  const message = applicationForm.querySelector('textarea[name="message"]');
+
+  if (audience) {
+    audience.value = videoDocentProfile.audience;
+  }
+
+  if (message) {
+    message.value = [
+      `관심 수업 방향: ${videoDocentProfile.title}`,
+      `상담받고 싶은 방향: ${videoDocentProfile.message}`,
+      "보고 싶은 AI 영상이 있으면 링크를 함께 전달하겠습니다.",
     ].join("\n");
   }
 

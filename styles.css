@@ -743,6 +743,111 @@ h1 {
   color: var(--guava-deep);
 }
 
+.video-docent-section {
+  padding: 46px 34px;
+  border-radius: 44px;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 240, 0.96), rgba(240, 248, 236, 0.9)),
+    rgba(255, 251, 246, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  box-shadow: var(--shadow);
+}
+
+.video-docent-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1.14fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.video-docent-panel {
+  display: grid;
+  align-content: space-between;
+  gap: 18px;
+  padding: 28px;
+  border-radius: 28px;
+  background: linear-gradient(160deg, rgba(79, 123, 91, 0.95), rgba(43, 31, 27, 0.9));
+  color: #fffaf0;
+}
+
+.video-docent-panel .mini-label,
+.video-docent-panel h3,
+.video-docent-panel p {
+  color: inherit;
+}
+
+.video-docent-panel h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.48rem, 2.3vw, 2.1rem);
+  line-height: 1.2;
+}
+
+.video-docent-panel p {
+  margin: 0;
+  opacity: 0.88;
+  line-height: 1.72;
+}
+
+.video-docent-apply {
+  width: fit-content;
+}
+
+.video-docent-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.video-docent-steps article {
+  min-height: 238px;
+  padding: 24px;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(46, 42, 36, 0.08);
+}
+
+.video-docent-steps span {
+  display: inline-flex;
+  margin-bottom: 28px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(248, 191, 102, 0.24);
+  color: var(--guava-deep);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.video-docent-steps h3 {
+  margin-bottom: 12px;
+  font-size: 1.16rem;
+}
+
+.video-docent-steps p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.68;
+}
+
+.video-docent-output {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.video-docent-output span {
+  display: grid;
+  min-height: 58px;
+  place-items: center;
+  padding: 10px 12px;
+  border-radius: 18px;
+  background: rgba(243, 106, 95, 0.1);
+  color: var(--guava-deep);
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.35;
+}
+
 .design-lab-section {
   padding: 46px 34px;
   border-radius: 44px;
@@ -2284,6 +2389,9 @@ h1 {
   .diagnosis-layout,
   .diagnosis-options,
   .package-grid,
+  .video-docent-layout,
+  .video-docent-steps,
+  .video-docent-output,
   .design-lab-layout,
   .design-lab-steps,
   .design-output-row,
@@ -2455,7 +2563,8 @@ h1 {
   .flow-card span,
   .flow-mode-grid span,
   .harness-step span,
-  .workspace-artifact span {
+  .workspace-artifact span,
+  .video-docent-steps span {
     letter-spacing: 0.1em;
   }
 
@@ -2465,6 +2574,8 @@ h1 {
   .diagnosis-choice,
   .diagnosis-result,
   .package-card,
+  .video-docent-panel,
+  .video-docent-steps article,
   .design-lab-panel,
   .design-lab-steps article,
   .operator-proof-card,
@@ -2548,6 +2659,23 @@ h1 {
 
   .package-card {
     min-height: 0;
+  }
+
+  .video-docent-section {
+    padding: 26px;
+    border-radius: 26px;
+  }
+
+  .video-docent-steps article {
+    min-height: 0;
+  }
+
+  .video-docent-steps span {
+    margin-bottom: 18px;
+  }
+
+  .video-docent-apply {
+    width: 100%;
   }
 
   .design-lab-section {
