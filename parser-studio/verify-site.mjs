@@ -26,6 +26,11 @@ const checks = [
   ["engine endpoint", js.includes("/api/engines")],
   ["convert endpoint", js.includes("/api/convert")],
   ["api base config", js.includes("parserStudioApiBase")],
+  ["engine diagnostics renderer", js.includes("renderEngineStatus")],
+  ["plugin diagnostics", js.includes("plugin_entry_point_count")],
+  ["mcp diagnostics", js.includes("mcp_server_configured")],
+  ["sniffed source metadata", js.includes("sniffed_mime_type")],
+  ["media time spans", js.includes("media_time_spans")],
   ["responsive layout", css.includes("@media")],
 ];
 

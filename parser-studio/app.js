@@ -27,7 +27,7 @@ function setStatus(text) {
 async function fetchEngines() {
   const response = await fetch(apiUrl("/api/engines"));
   const payload = await response.json();
-  enginesTab.textContent = JSON.stringify(payload, null, 2);
+  enginesTab.textContent = renderEngineStatus(payload);
 }
 
 async function convertSource() {
@@ -92,9 +92,67 @@ function renderResult(payload) {
         output_path: first.output_path,
         json_output_path: first.json_output_path,
         rag_bundle_paths: first.rag_bundle_paths,
+        source_metadata: first.source_metadata,
+        sniffed_mime_type: first.source_metadata && first.source_metadata.sniffed_mime_type,
+        diagnostics: first.diagnostics,
+        media_time_spans: collectMediaTimeSpans(payload),
         warnings: first.warnings,
       }, null, 2)
     : "결과 파일이 없습니다.";
+}
+
+function renderEngineStatus(payload) {
+  const engines = Array.isArray(payload.engines) ? payload.engines : [];
+  if (!engines.length) {
+    return JSON.stringify(payload, null, 2);
+  }
+  const lines = [
+    "Parser Studio engine diagnostics",
+    "",
+  ];
+  for (const engine of engines) {
+    const diagnostics = engine.diagnostics || {};
+    const availability = engine.available ? "available" : "missing";
+    lines.push(`${engine.name}: ${availability}`);
+    if (engine.version) {
+      lines.push(`  version: ${engine.version}`);
+    }
+    if (engine.error) {
+      lines.push(`  error: ${engine.error}`);
+    }
+    if (Object.prototype.hasOwnProperty.call(diagnostics, "plugin_entry_point_count")) {
+      lines.push(`  plugin_entry_point_count: ${diagnostics.plugin_entry_point_count}`);
+    }
+    if (Array.isArray(diagnostics.plugin_entry_points) && diagnostics.plugin_entry_points.length) {
+      lines.push(
+        `  plugins: ${diagnostics.plugin_entry_points.map((plugin) => plugin.name).join(", ")}`
+      );
+    }
+    if (Object.prototype.hasOwnProperty.call(diagnostics, "mcp_server_configured")) {
+      lines.push(`  mcp_server_configured: ${diagnostics.mcp_server_configured}`);
+    }
+    if (Object.prototype.hasOwnProperty.call(diagnostics, "mcp_endpoint_configured")) {
+      lines.push(`  mcp_endpoint_configured: ${diagnostics.mcp_endpoint_configured}`);
+    }
+  }
+  lines.push("");
+  lines.push(JSON.stringify(payload, null, 2));
+  return lines.join("\n");
+}
+
+function collectMediaTimeSpans(payload) {
+  const spans = [];
+  for (const item of payload.items || []) {
+    for (const span of item.media_time_spans || []) {
+      spans.push(span);
+    }
+    for (const candidate of item.candidates || []) {
+      for (const span of candidate.media_time_spans || []) {
+        spans.push(span);
+      }
+    }
+  }
+  return spans;
 }
 
 document.querySelectorAll(".tab-button").forEach((button) => {
