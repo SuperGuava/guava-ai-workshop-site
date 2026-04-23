@@ -18,8 +18,8 @@
     <meta property="og:image" content="assets/hero-workshop.svg" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="manifest" href="site.webmanifest" />
-    <link rel="stylesheet" href="styles.css?v=202604200630" />
-    <script src="script.js?v=202604200630" defer></script>
+    <link rel="stylesheet" href="styles.css?v=202604230940" />
+    <script src="script.js?v=202604230940" defer></script>
   </head>
   <body>
     <div class="page-shell">
@@ -33,6 +33,7 @@
         </a>
         <nav class="site-nav">
           <a href="#growth-map">성장지도</a>
+          <a href="#ai-sandbox">작업샌드박스</a>
           <a href="#course-packages">수업선택</a>
           <a href="#video-docent">영상해설</a>
           <a href="#design-lab">디자인공방</a>
@@ -193,6 +194,146 @@
               </ul>
               <button class="button button-primary diagnosis-apply" type="button">이 내용으로 상담 신청하기</button>
             </aside>
+          </div>
+        </section>
+
+        <section id="ai-sandbox" class="content-section sandbox-section">
+          <div class="section-heading">
+            <p class="eyebrow">AI 작업 샌드박스</p>
+            <h2>내 일을 AI에게 맡기는 흐름을 먼저 체험합니다</h2>
+            <p>
+              세계 AI 교육 흐름은 이제 단순 프롬프트보다 실제 업무 흐름, 에이전트 운영,
+              검증 루틴으로 이동하고 있습니다. 구아바 AI 공방은 이 흐름을 초보자도
+              눌러 보며 이해할 수 있게 바꿉니다.
+            </p>
+          </div>
+          <div class="sandbox-layout">
+            <form id="sandbox-form" class="sandbox-options" aria-label="AI 작업 샌드박스">
+              <label class="sandbox-choice">
+                <input type="radio" name="sandbox" value="routine" checked />
+                <span>
+                  <strong>반복 업무 줄이기</strong>
+                  <small>공지문, 안내문, 체크리스트를 AI에게 맡기는 흐름</small>
+                </span>
+              </label>
+              <label class="sandbox-choice">
+                <input type="radio" name="sandbox" value="youtube" />
+                <span>
+                  <strong>유튜브 따라하기</strong>
+                  <small>영상 링크를 함께 보며 내 화면 기준 실습으로 변환</small>
+                </span>
+              </label>
+              <label class="sandbox-choice">
+                <input type="radio" name="sandbox" value="document" />
+                <span>
+                  <strong>자료 정리하기</strong>
+                  <small>사진·PDF·유튜브·메모를 요약, 표, 실행계획으로 변환</small>
+                </span>
+              </label>
+              <label class="sandbox-choice">
+                <input type="radio" name="sandbox" value="design" />
+                <span>
+                  <strong>아이디어 시각화</strong>
+                  <small>문장과 메모를 발표자료, 카드뉴스, 랜딩 초안으로 변환</small>
+                </span>
+              </label>
+              <label class="sandbox-choice sandbox-choice-wide">
+                <input type="radio" name="sandbox" value="bot" />
+                <span>
+                  <strong>내 AI 봇 흐름 만들기</strong>
+                  <small>목표, 자료, 실행, 검증, 기억이 이어지는 작은 하네스 설계</small>
+                </span>
+              </label>
+            </form>
+            <aside id="sandbox-result" class="sandbox-result" aria-live="polite">
+              <p class="mini-label">추천 실행 흐름</p>
+              <h3>업무 AI 실행 루틴</h3>
+              <p>
+                반복되는 일을 하나 고르고, AI가 처리할 순서와 사람이 확인할 기준을
+                함께 정리합니다.
+              </p>
+              <ol>
+                <li>목표를 한 문장으로 정리</li>
+                <li>필요한 자료를 붙여 넣기</li>
+                <li>AI에게 초안을 만들게 하기</li>
+                <li>출처와 오류를 확인하기</li>
+                <li>다음에도 쓸 템플릿으로 저장</li>
+              </ol>
+              <button class="button button-primary sandbox-apply" type="button">
+                이 흐름으로 상담 신청하기
+              </button>
+            </aside>
+          </div>
+
+          <div class="sandbox-subheading">
+            <p class="mini-label">TRUST ROUTINE</p>
+            <h3>AI 검증 클리닉</h3>
+            <p>AI가 만든 결과를 그대로 믿지 않고, 사람이 안심하고 쓸 수 있는 기준을 붙입니다.</p>
+          </div>
+          <div class="trust-clinic" aria-label="AI 검증 클리닉">
+            <div class="trust-card">
+              <span>01</span>
+              <h3>출처 확인</h3>
+              <p>AI 답변의 근거가 어디서 왔는지 확인하고, 중요한 정보는 원문 기준으로 다시 봅니다.</p>
+            </div>
+            <div class="trust-card">
+              <span>02</span>
+              <h3>오류 찾기</h3>
+              <p>그럴듯하지만 틀린 문장, 빠진 조건, 과장된 결론을 체크리스트로 걸러냅니다.</p>
+            </div>
+            <div class="trust-card">
+              <span>03</span>
+              <h3>개인정보 점검</h3>
+              <p>이름, 연락처, 민감한 문서처럼 AI에게 그대로 넣으면 안 되는 정보를 구분합니다.</p>
+            </div>
+            <div class="trust-card">
+              <span>04</span>
+              <h3>사람의 최종 판단</h3>
+              <p>AI가 초안을 만들고, 사람은 방향과 책임이 필요한 판단을 마지막에 확인합니다.</p>
+            </div>
+          </div>
+
+          <div class="material-lab" aria-label="내 자료를 AI 작업장으로 바꾸기">
+            <div class="material-heading">
+              <p class="mini-label">MULTIMODAL INPUT</p>
+              <h3>내 자료를 AI 작업장으로 바꾸기</h3>
+              <p>흩어진 자료를 그대로 끝내지 않고, 수업에서 다시 쓸 수 있는 결과물로 바꿉니다.</p>
+            </div>
+            <div class="material-grid">
+              <article class="material-card">
+                <strong>사진</strong>
+                <span>메모 사진 → 할 일 목록과 안내문</span>
+              </article>
+              <article class="material-card">
+                <strong>PDF</strong>
+                <span>긴 문서 → 요약, 질문, 체크리스트</span>
+              </article>
+              <article class="material-card">
+                <strong>유튜브</strong>
+                <span>튜토리얼 → 따라하기 순서와 실습 카드</span>
+              </article>
+              <article class="material-card">
+                <strong>메모</strong>
+                <span>흩어진 생각 → 실행계획과 봇 설계 초안</span>
+              </article>
+            </div>
+          </div>
+
+          <div class="challenge-board" aria-label="7일 AI 실행 챌린지">
+            <div class="material-heading">
+              <p class="mini-label">7-DAY ACTION</p>
+              <h3>7일 AI 실행 챌린지</h3>
+              <p>수업 후에도 매일 하나씩 실제 결과물을 만들며 개인 AI 작업장을 채웁니다.</p>
+            </div>
+            <div class="challenge-grid">
+              <article class="challenge-day"><span>1일차</span><strong>질문문 만들기</strong></article>
+              <article class="challenge-day"><span>2일차</span><strong>자료 요약하기</strong></article>
+              <article class="challenge-day"><span>3일차</span><strong>비교표 만들기</strong></article>
+              <article class="challenge-day"><span>4일차</span><strong>자동 답변 초안</strong></article>
+              <article class="challenge-day"><span>5일차</span><strong>발표자료 초안</strong></article>
+              <article class="challenge-day"><span>6일차</span><strong>내 AI 봇 설계</strong></article>
+              <article class="challenge-day challenge-day-strong"><span>7일차</span><strong>개인 AI 작업장 정리</strong></article>
+            </div>
           </div>
         </section>
 

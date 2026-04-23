@@ -262,6 +262,29 @@ const checks = [
       script.includes("diagnosisApply"),
   },
   {
+    label: "AI work sandbox trend upgrade",
+    pass:
+      html.includes('id="ai-sandbox"') &&
+      html.includes("AI 작업 샌드박스") &&
+      html.includes("내 일을 AI에게 맡기는 흐름을 먼저 체험합니다") &&
+      script.includes("AI 영상 도슨트 실습") &&
+      html.includes("AI 검증 클리닉") &&
+      html.includes("출처 확인") &&
+      html.includes("개인정보 점검") &&
+      html.includes("내 자료를 AI 작업장으로 바꾸기") &&
+      html.includes("사진·PDF·유튜브·메모") &&
+      html.includes("7일 AI 실행 챌린지") &&
+      html.includes("개인 AI 작업장 정리") &&
+      css.includes(".sandbox-section") &&
+      css.includes(".sandbox-choice") &&
+      css.includes(".trust-card") &&
+      css.includes(".material-card") &&
+      css.includes(".challenge-day") &&
+      script.includes("sandboxProfiles") &&
+      script.includes("sandboxApplyButton") &&
+      script.includes("관심 AI 작업 샌드박스"),
+  },
+  {
     label: "AI design lab section",
     pass:
       html.includes('id="design-lab"') &&

@@ -12,6 +12,9 @@ const submitDialogClose = document.querySelector(".submit-dialog-close");
 const diagnosisForm = document.querySelector("#diagnosis-form");
 const diagnosisResult = document.querySelector("#diagnosis-result");
 const diagnosisApply = document.querySelector(".diagnosis-apply");
+const sandboxForm = document.querySelector("#sandbox-form");
+const sandboxResult = document.querySelector("#sandbox-result");
+const sandboxApplyButton = document.querySelector(".sandbox-apply");
 const packageApplyButtons = Array.from(document.querySelectorAll(".package-apply"));
 const missionApplyButtons = Array.from(document.querySelectorAll(".mission-apply"));
 const designApplyButton = document.querySelector(".design-apply");
@@ -59,6 +62,46 @@ const defaultDiagnosis = {
 };
 
 let currentDiagnosis = defaultDiagnosis;
+
+const sandboxProfiles = {
+  routine: {
+    title: "업무 AI 실행 루틴",
+    audience: "실무자",
+    body: "반복되는 일을 하나 고르고, AI가 처리할 순서와 사람이 확인할 기준을 함께 정리합니다.",
+    steps: ["목표를 한 문장으로 정리", "필요한 자료를 붙여 넣기", "AI에게 초안을 만들게 하기", "출처와 오류를 확인하기", "다음에도 쓸 템플릿으로 저장"],
+    message: "반복 업무 하나를 AI에게 맡기는 실행 흐름을 만들고 싶습니다. 목표 정리, 자료 연결, 초안 생성, 검증, 템플릿 저장까지 상담받고 싶습니다.",
+  },
+  youtube: {
+    title: "AI 영상 도슨트 실습",
+    audience: "왕초보",
+    body: "영상 링크를 함께 보며 중요한 장면에서 멈추고, 내 화면 기준으로 따라 할 순서를 다시 만듭니다.",
+    steps: ["보고 싶은 영상 링크 정하기", "중요 장면에서 멈춰서 해설", "내 화면 기준으로 다시 실습", "막힌 지점 복구 루틴 만들기", "다음에도 볼 체크리스트 저장"],
+    message: "영상 링크를 함께 보며 중요한 장면을 해설받고, 내 화면 기준으로 따라 하는 AI 영상 도슨트 수업을 상담받고 싶습니다.",
+  },
+  document: {
+    title: "자료 정리 작업장",
+    audience: "중장년층",
+    body: "사진·PDF·유튜브·메모처럼 흩어진 자료를 요약, 표, 질문, 실행계획으로 바꿉니다.",
+    steps: ["자료 종류 확인", "AI에게 읽히기 쉬운 형태로 정리", "요약과 핵심 질문 만들기", "표나 체크리스트로 변환", "가족이나 팀에 공유할 문구 저장"],
+    message: "사진, PDF, 유튜브, 메모 같은 자료를 AI 작업장으로 바꾸고 요약, 표, 체크리스트까지 만드는 수업을 상담받고 싶습니다.",
+  },
+  design: {
+    title: "아이디어 시각화 공방",
+    audience: "실무자",
+    body: "문장과 메모를 발표자료, 카드뉴스, 랜딩페이지 초안처럼 눈에 보이는 결과물로 바꿉니다.",
+    steps: ["아이디어 문장 정리", "참고 자료와 톤 정하기", "첫 시안 만들기", "문구와 배치 수정", "공유 가능한 파일이나 웹 초안으로 저장"],
+    message: "아이디어와 메모를 발표자료, 카드뉴스, 랜딩페이지 초안 같은 시각 결과물로 바꾸는 수업을 상담받고 싶습니다.",
+  },
+  bot: {
+    title: "작은 AI 하네스 설계",
+    audience: "실무자",
+    body: "한 번 묻고 끝내지 않고, 목표·자료·실행·검증·기억이 이어지는 작은 AI 봇 흐름을 설계합니다.",
+    steps: ["AI가 맡을 일 정하기", "입력 자료와 출력 형식 정하기", "실행 단계를 나누기", "검증 질문 붙이기", "반복 가능한 사용 문서로 저장"],
+    message: "목표, 자료, 실행, 검증, 기억이 이어지는 작은 AI 하네스와 봇 흐름을 설계하는 수업을 상담받고 싶습니다.",
+  },
+};
+
+let currentSandbox = sandboxProfiles.routine;
 
 const packageProfiles = {
   starter: {
@@ -228,6 +271,66 @@ const updateDiagnosisResult = () => {
 };
 
 diagnosisForm?.addEventListener("change", updateDiagnosisResult);
+
+const renderSandbox = (profile) => {
+  currentSandbox = profile;
+
+  if (!sandboxResult) {
+    return;
+  }
+
+  const title = sandboxResult.querySelector("h3");
+  const body = sandboxResult.querySelector("p:not(.mini-label)");
+  const list = sandboxResult.querySelector("ol");
+
+  if (title) {
+    title.textContent = profile.title;
+  }
+
+  if (body) {
+    body.textContent = profile.body;
+  }
+
+  if (list) {
+    list.innerHTML = profile.steps.map((step) => `<li>${step}</li>`).join("");
+  }
+};
+
+const updateSandboxResult = () => {
+  if (!sandboxForm) {
+    return;
+  }
+
+  const selected = sandboxForm.querySelector('input[name="sandbox"]:checked')?.value || "routine";
+  renderSandbox(sandboxProfiles[selected] || sandboxProfiles.routine);
+};
+
+updateSandboxResult();
+sandboxForm?.addEventListener("change", updateSandboxResult);
+
+sandboxApplyButton?.addEventListener("click", () => {
+  if (!applicationForm) {
+    return;
+  }
+
+  const audience = applicationForm.querySelector('select[name="audience"]');
+  const message = applicationForm.querySelector('textarea[name="message"]');
+
+  if (audience) {
+    audience.value = currentSandbox.audience;
+  }
+
+  if (message) {
+    message.value = [
+      `관심 AI 작업 샌드박스: ${currentSandbox.title}`,
+      `상담받고 싶은 방향: ${currentSandbox.message}`,
+      "수업에서 만들 결과물과 준비물을 함께 안내받고 싶습니다.",
+    ].join("\n");
+  }
+
+  applicationForm.scrollIntoView({ behavior: "smooth", block: "start" });
+  message?.focus({ preventScroll: true });
+});
 
 diagnosisApply?.addEventListener("click", () => {
   if (!applicationForm) {
