@@ -53,7 +53,7 @@ const checks = [
       html.includes('id="application-status"') &&
       html.includes('class="submit-dialog"') &&
       html.includes('role="dialog"') &&
-      html.includes("신청 내용을 보내는 중입니다") &&
+      html.includes("한 줄만 남겨도 접수됩니다. 자세한 내용은 선택입니다.") &&
       html.includes("신청이 접수되었습니다") &&
       css.includes(".form-status") &&
       css.includes(".submit-dialog") &&
@@ -68,7 +68,7 @@ const checks = [
     label: "application intake copy",
     pass:
       html.includes("작성한 내용은 ninefire@naver.com으로 접수됩니다") &&
-      html.includes("30초 수업 상담 신청하기"),
+      html.includes("한 줄로 문의 남기기"),
   },
   {
     label: "stronger hero positioning",
@@ -108,16 +108,17 @@ const checks = [
       html.includes("AI를 켜도 뭘 물어볼지 막히는 분") &&
       html.includes("가족과 생활 정보를 정리해야 하는 분") &&
       html.includes("반복 안내문을 줄이고 싶은 분") &&
-      html.includes("30초 수업 상담 신청하기"),
+      html.includes("한 줄로 문의 남기기"),
   },
   {
     label: "softer form guidance",
     pass:
-      html.includes("30초만 적으면 수업 상담으로 이어집니다") &&
-      html.includes("어떤 수업이 맞을지 간단히 적어 주세요") &&
+      html.includes("한 줄만 남겨도 수업 상담으로 이어집니다") &&
+      html.includes("길게 적지 않아도 됩니다. 한 줄만 남겨 주시면 확인 후") &&
       html.includes("확인 후 수업 방식과") &&
       html.includes("준비물을 안내드립니다") &&
-      html.includes("내 상황을 적어 주세요"),
+      html.includes("지금 배우고 싶은 것 한 줄") &&
+      html.includes("자세히 적기"),
   },
   {
     label: "reassurance section",
@@ -135,7 +136,7 @@ const checks = [
     label: "mobile-first CTA and form guidance",
     pass:
       html.includes(">상담 신청</a>") &&
-      html.includes("30초 정도면 작성할 수 있습니다.") &&
+      html.includes("기본 입력은 3개뿐입니다.") &&
       html.includes("핵심만 보고 30초 안에 상담 신청까지 이어집니다."),
   },
   {

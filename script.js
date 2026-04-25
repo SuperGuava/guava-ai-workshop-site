@@ -5,6 +5,11 @@ const toast = document.querySelector(".copy-toast");
 const sampleCopyButtons = Array.from(document.querySelectorAll(".sample-copy"));
 const applicationForm = document.querySelector("#application-form");
 const applicationStatus = document.querySelector("#application-status");
+const applicationSummary = applicationForm?.querySelector('input[name="summary"]');
+const applicationAudience = applicationForm?.querySelector('select[name="audience"]');
+const applicationMessage = applicationForm?.querySelector('textarea[name="message"]');
+const applicationReference = applicationForm?.querySelector('input[name="reference"]');
+const applicationDetails = applicationForm?.querySelector(".application-details");
 const submitDialog = document.querySelector(".submit-dialog");
 const submitDialogTitle = document.querySelector("#submit-dialog-title");
 const submitDialogMessage = document.querySelector("#submit-dialog-message");
@@ -167,6 +172,61 @@ const videoDocentProfile = {
   message: "좋은 AI 유튜브를 혼자 보지 않고 같이 보면서 따라 해보고 싶습니다. 영상에서 막히는 장면을 해설받고, 내 화면에서 직접 실습한 뒤 개인 AI 작업장에 남길 질문 템플릿과 체크리스트까지 만들고 싶습니다.",
 };
 
+const prefillApplication = ({ summary, audience = "", detail = "", reference = "" }) => {
+  if (!applicationForm) {
+    return;
+  }
+
+  if (applicationSummary) {
+    applicationSummary.value = summary;
+  }
+
+  if (applicationAudience) {
+    applicationAudience.value = audience;
+  }
+
+  if (applicationMessage) {
+    applicationMessage.value = detail;
+  }
+
+  if (applicationReference) {
+    applicationReference.value = reference;
+  }
+
+  if (applicationDetails && (audience || detail || reference)) {
+    applicationDetails.open = true;
+  }
+
+  applicationForm.scrollIntoView({ behavior: "smooth", block: "start" });
+  applicationSummary?.focus({ preventScroll: true });
+};
+
+const buildApplicationMessage = () => {
+  const summary = applicationSummary?.value.trim() || "";
+  const audience = applicationAudience?.value.trim() || "";
+  const detail = applicationMessage?.value.trim() || "";
+  const reference = applicationReference?.value.trim() || "";
+  const lines = [];
+
+  if (summary) {
+    lines.push(`한 줄 신청: ${summary}`);
+  }
+
+  if (audience) {
+    lines.push(`신청 대상: ${audience}`);
+  }
+
+  if (detail) {
+    lines.push(`추가 메모: ${detail}`);
+  }
+
+  if (reference) {
+    lines.push(`참고 링크: ${reference}`);
+  }
+
+  return lines.join("\n");
+};
+
 for (const tab of tabs) {
   tab.addEventListener("click", () => {
     const target = tab.dataset.demoTarget;
@@ -313,23 +373,15 @@ sandboxApplyButton?.addEventListener("click", () => {
     return;
   }
 
-  const audience = applicationForm.querySelector('select[name="audience"]');
-  const message = applicationForm.querySelector('textarea[name="message"]');
-
-  if (audience) {
-    audience.value = currentSandbox.audience;
-  }
-
-  if (message) {
-    message.value = [
+  prefillApplication({
+    summary: currentSandbox.title,
+    audience: currentSandbox.audience,
+    detail: [
       `관심 AI 작업 샌드박스: ${currentSandbox.title}`,
       `상담받고 싶은 방향: ${currentSandbox.message}`,
       "수업에서 만들 결과물과 준비물을 함께 안내받고 싶습니다.",
-    ].join("\n");
-  }
-
-  applicationForm.scrollIntoView({ behavior: "smooth", block: "start" });
-  message?.focus({ preventScroll: true });
+    ].join("\n"),
+  });
 });
 
 diagnosisApply?.addEventListener("click", () => {
@@ -337,29 +389,22 @@ diagnosisApply?.addEventListener("click", () => {
     return;
   }
 
-  const audience = applicationForm.querySelector('select[name="audience"]');
-  const message = applicationForm.querySelector('textarea[name="message"]');
   const selectedLabels = diagnosisForm
     ? Array.from(diagnosisForm.querySelectorAll('input[name="diagnosis"]:checked'))
         .map((item) => item.closest("label")?.querySelector("strong")?.textContent)
         .filter(Boolean)
     : [];
+  const selectedText = selectedLabels.length > 0 ? selectedLabels.join(", ") : "AI 왕초보 실습형 수업 상담";
 
-  if (audience) {
-    audience.value = currentDiagnosis.audience;
-  }
-
-  if (message) {
-    const selectedText = selectedLabels.length > 0 ? selectedLabels.join(", ") : "AI 왕초보 실습형 수업 상담";
-    message.value = [
+  prefillApplication({
+    summary: currentDiagnosis.title,
+    audience: currentDiagnosis.audience,
+    detail: [
       `30초 AI 진단 결과: ${currentDiagnosis.title}`,
       `선택한 상황: ${selectedText}`,
       `상담받고 싶은 방향: ${currentDiagnosis.body}`,
-    ].join("\n");
-  }
-
-  applicationForm.scrollIntoView({ behavior: "smooth", block: "start" });
-  message?.focus({ preventScroll: true });
+    ].join("\n"),
+  });
 });
 
 for (const button of packageApplyButtons) {
@@ -369,23 +414,15 @@ for (const button of packageApplyButtons) {
     }
 
     const profile = packageProfiles[button.dataset.package] || packageProfiles.starter;
-    const audience = applicationForm.querySelector('select[name="audience"]');
-    const message = applicationForm.querySelector('textarea[name="message"]');
-
-    if (audience) {
-      audience.value = profile.audience;
-    }
-
-    if (message) {
-      message.value = [
+    prefillApplication({
+      summary: profile.title,
+      audience: profile.audience,
+      detail: [
         `관심 수업 패키지: ${profile.title}`,
         `상담받고 싶은 방향: ${profile.message}`,
         "가격, 진행 방식, 준비물을 함께 안내받고 싶습니다.",
-      ].join("\n");
-    }
-
-    applicationForm.scrollIntoView({ behavior: "smooth", block: "start" });
-    message?.focus({ preventScroll: true });
+      ].join("\n"),
+    });
   });
 }
 
@@ -396,23 +433,15 @@ for (const button of missionApplyButtons) {
     }
 
     const profile = missionProfiles[button.dataset.mission] || missionProfiles.hospital;
-    const audience = applicationForm.querySelector('select[name="audience"]');
-    const message = applicationForm.querySelector('textarea[name="message"]');
-
-    if (audience) {
-      audience.value = profile.audience;
-    }
-
-    if (message) {
-      message.value = [
+    prefillApplication({
+      summary: profile.title,
+      audience: profile.audience,
+      detail: [
         `관심 AI 미션: ${profile.title}`,
         `상담받고 싶은 방향: ${profile.message}`,
         "수업 시간, 준비물, 결과물 예시를 함께 안내받고 싶습니다.",
-      ].join("\n");
-    }
-
-    applicationForm.scrollIntoView({ behavior: "smooth", block: "start" });
-    message?.focus({ preventScroll: true });
+      ].join("\n"),
+    });
   });
 }
 
@@ -421,23 +450,15 @@ designApplyButton?.addEventListener("click", () => {
     return;
   }
 
-  const audience = applicationForm.querySelector('select[name="audience"]');
-  const message = applicationForm.querySelector('textarea[name="message"]');
-
-  if (audience) {
-    audience.value = designLabProfile.audience;
-  }
-
-  if (message) {
-    message.value = [
+  prefillApplication({
+    summary: designLabProfile.title,
+    audience: designLabProfile.audience,
+    detail: [
       `관심 수업 방향: ${designLabProfile.title}`,
       `상담받고 싶은 방향: ${designLabProfile.message}`,
       "수업에서 만들 수 있는 결과물 예시와 준비물을 함께 안내받고 싶습니다.",
-    ].join("\n");
-  }
-
-  applicationForm.scrollIntoView({ behavior: "smooth", block: "start" });
-  message?.focus({ preventScroll: true });
+    ].join("\n"),
+  });
 });
 
 workspaceApplyButton?.addEventListener("click", () => {
@@ -445,23 +466,15 @@ workspaceApplyButton?.addEventListener("click", () => {
     return;
   }
 
-  const audience = applicationForm.querySelector('select[name="audience"]');
-  const message = applicationForm.querySelector('textarea[name="message"]');
-
-  if (audience) {
-    audience.value = personalWorkspaceProfile.audience;
-  }
-
-  if (message) {
-    message.value = [
+  prefillApplication({
+    summary: personalWorkspaceProfile.title,
+    audience: personalWorkspaceProfile.audience,
+    detail: [
       `관심 수업 방향: ${personalWorkspaceProfile.title}`,
       `상담받고 싶은 방향: ${personalWorkspaceProfile.message}`,
       "내 상황에 맞는 작업장 예시와 수업 후 남는 결과물을 함께 안내받고 싶습니다.",
-    ].join("\n");
-  }
-
-  applicationForm.scrollIntoView({ behavior: "smooth", block: "start" });
-  message?.focus({ preventScroll: true });
+    ].join("\n"),
+  });
 });
 
 videoDocentApplyButton?.addEventListener("click", () => {
@@ -469,23 +482,15 @@ videoDocentApplyButton?.addEventListener("click", () => {
     return;
   }
 
-  const audience = applicationForm.querySelector('select[name="audience"]');
-  const message = applicationForm.querySelector('textarea[name="message"]');
-
-  if (audience) {
-    audience.value = videoDocentProfile.audience;
-  }
-
-  if (message) {
-    message.value = [
+  prefillApplication({
+    summary: videoDocentProfile.title,
+    audience: videoDocentProfile.audience,
+    detail: [
       `관심 수업 방향: ${videoDocentProfile.title}`,
       `상담받고 싶은 방향: ${videoDocentProfile.message}`,
       "보고 싶은 AI 영상이 있으면 링크를 함께 전달하겠습니다.",
-    ].join("\n");
-  }
-
-  applicationForm.scrollIntoView({ behavior: "smooth", block: "start" });
-  message?.focus({ preventScroll: true });
+    ].join("\n"),
+  });
 });
 
 const showSubmitDialog = (title, message) => {
@@ -543,8 +548,12 @@ if (applicationForm) {
       return;
     }
 
+    if (applicationMessage) {
+      applicationMessage.value = buildApplicationMessage();
+    }
+
     const submitButton = applicationForm.querySelector('button[type="submit"]');
-    const defaultButtonText = submitButton?.textContent || "30초 수업 상담 신청하기";
+    const defaultButtonText = submitButton?.textContent || "한 줄로 문의 남기기";
 
     applicationStatus?.classList.remove("is-error");
     if (applicationStatus) {
@@ -573,6 +582,9 @@ if (applicationForm) {
       }
 
       applicationForm.reset();
+      if (applicationDetails) {
+        applicationDetails.open = false;
+      }
       if (applicationStatus) {
         applicationStatus.textContent = "신청이 접수되었습니다. 확인 후 안내드리겠습니다.";
       }

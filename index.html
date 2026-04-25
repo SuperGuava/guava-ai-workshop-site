@@ -18,8 +18,8 @@
     <meta property="og:image" content="assets/hero-workshop.svg" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="manifest" href="site.webmanifest" />
-    <link rel="stylesheet" href="styles.css?v=202604230940" />
-    <script src="script.js?v=202604230940" defer></script>
+    <link rel="stylesheet" href="styles.css?v=202604260845" />
+    <script src="script.js?v=202604260845" defer></script>
   </head>
   <body>
     <div class="page-shell">
@@ -1463,21 +1463,21 @@
         <section id="contact" class="content-section contact-section">
           <div class="section-heading">
             <p class="eyebrow">READY TO START</p>
-            <h2>30초만 적으면 수업 상담으로 이어집니다</h2>
+            <h2>한 줄만 남겨도 수업 상담으로 이어집니다</h2>
             <p>
-              어떤 수업이 맞을지 간단히 적어 주세요. 확인 후 수업 방식과
+              길게 적지 않아도 됩니다. 한 줄만 남겨 주시면 확인 후 수업 방식과
               준비물을 안내드립니다.
             </p>
           </div>
           <div class="contact-layout">
             <article class="contact-card highlight-card">
               <p class="mini-label">신청 접수</p>
-              <h3>신청서를 보내면 수업 상담으로 이어집니다</h3>
+              <h3>가볍게 남기면 확인 후 연락드립니다</h3>
               <p>
-                이름과 연락처, 내 상황을 적어 주세요.
+                이름과 연락처, 지금 배우고 싶은 것 한 줄만 적어 주세요.
                 작성한 내용은 ninefire@naver.com으로 접수됩니다.
               </p>
-              <p class="form-helper">30초 정도면 작성할 수 있습니다.</p>
+              <p class="form-helper">기본 입력은 3개뿐입니다.</p>
               <form
                 id="application-form"
                 class="application-form"
@@ -1509,32 +1509,57 @@
                   />
                 </label>
                 <label>
-                  신청 대상
-                  <select name="audience" required>
-                    <option value="">선택해 주세요</option>
-                    <option value="왕초보">왕초보</option>
-                    <option value="중장년층">중장년층</option>
-                    <option value="실무자">실무자</option>
-                    <option value="소규모 스터디·워크숍">소규모 스터디·워크숍</option>
-                  </select>
-                </label>
-                <label>
-                  원하는 수업 방향
-                  <textarea
-                    name="message"
-                    rows="5"
-                    placeholder="내 상황을 적어 주세요. 예: 부모님 여행 일정 정리, 업무 안내문 작성, AI 왕초보 수업 상담"
+                  지금 배우고 싶은 것 한 줄
+                  <input
+                    name="summary"
+                    type="text"
+                    placeholder="예: 부모님 여행 일정 정리, 업무 안내문 자동화, AI 왕초보 수업"
                     required
-                  ></textarea>
+                  />
                 </label>
+                <details class="application-details">
+                  <summary>자세히 적기</summary>
+                  <div class="application-details-body">
+                    <p class="application-summary-note">
+                      원하면 현재 상황, 원하는 수업 방향, 참고 링크를 더 남길 수 있습니다.
+                    </p>
+                    <label>
+                      신청 대상
+                      <select name="audience">
+                        <option value="">선택 안 함</option>
+                        <option value="왕초보">왕초보</option>
+                        <option value="중장년층">중장년층</option>
+                        <option value="실무자">실무자</option>
+                        <option value="소규모 스터디·워크숍">소규모 스터디·워크숍</option>
+                      </select>
+                    </label>
+                    <label>
+                      추가로 남기고 싶은 내용
+                      <textarea
+                        name="message"
+                        rows="5"
+                        placeholder="선택 사항입니다. 현재 상황, 원하는 수업 방식, 참고하고 싶은 내용을 더 적어 주세요."
+                      ></textarea>
+                    </label>
+                    <label>
+                      참고 링크
+                      <input
+                        name="reference"
+                        type="url"
+                        inputmode="url"
+                        placeholder="유튜브, 문서, 웹페이지 링크가 있으면 적어 주세요"
+                      />
+                    </label>
+                  </div>
+                </details>
                 <div class="contact-actions">
-                  <button class="button button-primary application-link" type="submit">30초 수업 상담 신청하기</button>
+                  <button class="button button-primary application-link" type="submit">한 줄로 문의 남기기</button>
                   <button class="button button-secondary copy-button" type="button" data-copy-target="inquiry-template">
                     문의 문구 복사
                   </button>
                 </div>
                 <p id="application-status" class="form-status" role="status" aria-live="polite">
-                  상담 신청하기를 누르면 신청 내용을 보내는 중입니다 문구가 표시되고, 접수 결과를 팝업으로 알려드립니다.
+                  한 줄만 남겨도 접수됩니다. 자세한 내용은 선택입니다.
                 </p>
               </form>
             </article>
